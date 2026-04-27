@@ -30,23 +30,40 @@ const Skills = ({ id = "skills" }: { id?: string }) => {
           <h2 className="text-3xl md:text-[36px] font-bold text-foreground">What I work with</h2>
         </div>
 
-        <ul className="reveal space-y-3 list-none">
+        <div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+          style={{ gap: "20px" }}
+        >
           {groups.map((g) => (
-            <li
+            <div
               key={g.title}
-              className="flex gap-3"
-              style={{ fontSize: "15px", lineHeight: 1.9 }}
+              className="reveal"
+              style={{
+                backgroundColor: "#2A2A2D",
+                border: "0.5px solid rgba(255,255,255,0.08)",
+                borderRadius: "12px",
+                padding: "20px 24px",
+              }}
             >
-              <span className="text-mint shrink-0" aria-hidden="true">•</span>
-              <span className="text-foreground">
-                <span className="text-mint" style={{ fontWeight: 500 }}>
-                  {g.title}:
-                </span>{" "}
+              <div
+                className="text-mint uppercase mb-3"
+                style={{
+                  fontSize: "12px",
+                  fontWeight: 500,
+                  letterSpacing: "0.1em",
+                }}
+              >
+                {g.title}
+              </div>
+              <p
+                className="text-foreground"
+                style={{ fontSize: "14px", lineHeight: 1.8 }}
+              >
                 {g.items}
-              </span>
-            </li>
+              </p>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
     </section>
   );
