@@ -1,23 +1,42 @@
 const groups = [
   {
     title: "Core Angular",
-    items: "Reactive Forms, Custom Validators, Module-based Routing, BehaviorSubject, Data Binding, Dependency Injection, Decorators, Lifecycle Hooks, Change Detection Strategy",
+    items: [
+      "Reactive Forms",
+      "Custom Validators",
+      "Module-based Routing",
+      "BehaviorSubject",
+      "Data Binding",
+      "Dependency Injection",
+      "Decorators",
+      "Lifecycle Hooks",
+      "Change Detection Strategy",
+    ],
   },
   {
     title: "RxJS",
-    items: "valueChanges, combineLatest, subscribe, takeUntil, debounceTime, forkJoin, switchMap, distinctUntilChanged",
+    items: [
+      "valueChanges",
+      "combineLatest",
+      "subscribe",
+      "takeUntil",
+      "debounceTime",
+      "forkJoin",
+      "switchMap",
+      "distinctUntilChanged",
+    ],
   },
   {
     title: "State Management",
-    items: "NgRx (Store, Actions, Reducers, Effects, Selectors)",
+    items: ["NgRx Store", "Actions", "Reducers", "Effects", "Selectors"],
   },
   {
     title: "Markup & Styling",
-    items: "HTML5, SCSS, Bootstrap 5",
+    items: ["HTML5", "SCSS", "Bootstrap 5"],
   },
   {
     title: "APIs & Data",
-    items: "RESTful APIs, JSON",
+    items: ["RESTful APIs", "JSON"],
   },
 ];
 
@@ -46,21 +65,34 @@ const Skills = ({ id = "skills" }: { id?: string }) => {
               }}
             >
               <div
-                className="text-mint uppercase mb-3"
+                className="text-mint uppercase"
                 style={{
                   fontSize: "12px",
                   fontWeight: 500,
                   letterSpacing: "0.1em",
+                  marginBottom: "12px",
                 }}
               >
                 {g.title}
               </div>
-              <p
-                className="text-foreground"
-                style={{ fontSize: "14px", lineHeight: 1.8 }}
-              >
-                {g.items}
-              </p>
+              <div className="flex flex-wrap" style={{ gap: "8px" }}>
+                {g.items.map((item) => (
+                  <span
+                    key={item}
+                    className="inline-flex items-center text-foreground"
+                    style={{
+                      backgroundColor: "rgba(255,255,255,0.06)",
+                      border: "0.5px solid rgba(255,255,255,0.12)",
+                      fontSize: "12px",
+                      fontWeight: 400,
+                      borderRadius: "999px",
+                      padding: "4px 12px",
+                    }}
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
             </div>
           ))}
         </div>
