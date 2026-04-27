@@ -1,63 +1,78 @@
-import { Briefcase } from "lucide-react";
+const entries = [
+  {
+    current: true,
+    role: "Programmer Analyst",
+    company: "Cognizant Technology Solutions",
+    period: "2024 – Present",
+    bullets: [
+      "Leading Angular feature development for enterprise-scale client applications",
+      "Implementing NgRx state management and complex RxJS data pipelines",
+      "Conducting code reviews and mentoring junior developers",
+      "Collaborating with cross-functional teams on REST API integration",
+    ],
+  },
+  {
+    role: "Programmer Analyst Trainee (PAT)",
+    company: "Cognizant Technology Solutions",
+    period: "2023 – 2024",
+    bullets: [
+      "Built and maintained Angular modules with reactive forms and custom validators",
+      "Developed reusable component libraries using SCSS and Bootstrap",
+      "Integrated REST APIs and handled JSON data transformation",
+      "Learned and applied RxJS operators for async data handling",
+    ],
+  },
+  {
+    role: "Intern",
+    company: "Cognizant Technology Solutions",
+    period: "Jan 2023 – Mid 2023",
+    bullets: [
+      "Onboarded into Angular ecosystem and enterprise codebase",
+      "Contributed to UI bug fixes, component styling, and feature enhancements",
+      "Gained hands-on experience with Agile/Scrum workflows",
+    ],
+  },
+];
 
 const Experience = () => {
   return (
-    <section id="experience" className="section-padding bg-secondary/40">
+    <section id="experience" className="section-padding bg-background">
       <div className="container-narrow">
-        <div className="reveal max-w-2xl mb-14">
-          <span className="text-sm font-semibold text-electric uppercase tracking-widest">
-            Experience
-          </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl text-navy mt-3 mb-4">
-            Career timeline
-          </h2>
-          <p className="text-muted-foreground text-base md:text-lg">
-            Professional journey and key responsibilities.
-          </p>
+        <div className="reveal mb-12">
+          <div className="label-mint mb-3">Experience</div>
+          <h2 className="text-3xl md:text-[36px] font-bold text-foreground">My Journey</h2>
         </div>
 
         <div className="relative max-w-3xl">
-          {/* Vertical line */}
-          <div className="absolute left-4 md:left-6 top-2 bottom-2 w-px bg-border" />
+          <div className="absolute left-[7px] top-2 bottom-2 w-0.5 bg-mint" />
 
-          <div className="reveal relative pl-14 md:pl-20">
-            {/* Dot */}
-            <div className="absolute left-0 md:left-2 top-1 w-9 h-9 rounded-full bg-gradient-accent grid place-items-center shadow-accent ring-4 ring-background">
-              <Briefcase className="w-4 h-4 text-accent-foreground" />
-            </div>
+          <div className="space-y-10">
+            {entries.map((e, i) => (
+              <div key={i} className="reveal relative pl-10">
+                <span className="absolute left-0 top-1.5 w-4 h-4 rounded-full bg-mint ring-4 ring-background" />
 
-            <div className="p-7 rounded-xl bg-card border border-border shadow-soft">
-              <div className="flex flex-wrap items-center gap-3 mb-2">
-                <span className="px-2.5 py-1 rounded bg-electric text-accent-foreground text-xs font-semibold">
-                  Present
-                </span>
-                <span className="text-sm text-muted-foreground font-medium">
-                  2022 – Present
-                </span>
+                <div className="p-6 rounded-xl bg-card border border-subtle hover:border-mint/50 transition-smooth">
+                  <div className="flex flex-wrap items-center gap-3 mb-2">
+                    {e.current && (
+                      <span className="px-2.5 py-0.5 rounded bg-mint text-primary-foreground text-xs font-semibold">
+                        Current
+                      </span>
+                    )}
+                    <span className="text-sm text-secondary-muted">{e.period}</span>
+                  </div>
+                  <h3 className="text-xl font-semibold text-foreground">{e.role}</h3>
+                  <p className="text-mint text-sm mb-4">{e.company}</p>
+                  <ul className="space-y-2 text-sm text-secondary-muted">
+                    {e.bullets.map((b, j) => (
+                      <li key={j} className="flex gap-3">
+                        <span className="mt-2 w-1 h-1 rounded-full bg-mint flex-shrink-0" />
+                        <span>{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
-              <h3 className="text-xl font-semibold text-navy">Programmer Analyst</h3>
-              <p className="text-electric font-medium mb-4">
-                Cognizant Technology Solutions
-              </p>
-              <ul className="space-y-2.5 text-sm md:text-base text-muted-foreground">
-                <li className="flex gap-3">
-                  <span className="mt-2 w-1.5 h-1.5 rounded-full bg-electric flex-shrink-0" />
-                  Developing and maintaining enterprise Angular applications with a focus on scalability and performance.
-                </li>
-                <li className="flex gap-3">
-                  <span className="mt-2 w-1.5 h-1.5 rounded-full bg-electric flex-shrink-0" />
-                  Implementing complex reactive forms, custom validators, and state management with NgRx.
-                </li>
-                <li className="flex gap-3">
-                  <span className="mt-2 w-1.5 h-1.5 rounded-full bg-electric flex-shrink-0" />
-                  Collaborating with cross-functional teams to translate business requirements into modular component architectures.
-                </li>
-                <li className="flex gap-3">
-                  <span className="mt-2 w-1.5 h-1.5 rounded-full bg-electric flex-shrink-0" />
-                  Integrating RESTful APIs and handling asynchronous data flows using advanced RxJS operators.
-                </li>
-              </ul>
-            </div>
+            ))}
           </div>
         </div>
       </div>

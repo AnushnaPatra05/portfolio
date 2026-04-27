@@ -1,30 +1,15 @@
 const groups = [
   {
-    title: "Core Angular",
+    title: "Angular Core",
     items: [
-      "Reactive Forms",
-      "Custom Validators",
-      "Module-based Routing",
-      "BehaviorSubject",
-      "Data Binding",
-      "Dependency Injection",
-      "Decorators",
-      "Lifecycle Hooks",
-      "Change Detection Strategy",
+      "Reactive Forms", "Custom Validators", "Module-based Routing", "BehaviorSubject",
+      "Data Binding", "Dependency Injection", "Decorators", "Lifecycle Hooks",
+      "Change Detection Strategy", "OnPush",
     ],
   },
   {
     title: "RxJS",
-    items: [
-      "valueChanges",
-      "combineLatest",
-      "subscribe",
-      "takeUntil",
-      "debounceTime",
-      "forkJoin",
-      "switchMap",
-      "distinctUntilChanged",
-    ],
+    items: ["valueChanges", "combineLatest", "subscribe", "takeUntil", "debounceTime", "forkJoin", "switchMap", "distinctUntilChanged"],
   },
   {
     title: "State Management",
@@ -36,46 +21,26 @@ const groups = [
   },
   {
     title: "APIs & Data",
-    items: ["RESTful APIs", "JSON"],
+    items: ["RESTful APIs", "JSON", "HTTP Client"],
   },
 ];
 
-const Skills = () => {
+const Skills = ({ id = "skills" }: { id?: string }) => {
   return (
-    <section id="skills" className="section-padding bg-secondary/40">
+    <section id={id} className="section-padding bg-background">
       <div className="container-narrow">
-        <div className="reveal max-w-2xl mb-14">
-          <span className="text-sm font-semibold text-electric uppercase tracking-widest">
-            Skills
-          </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl text-navy mt-3 mb-4">
-            Technical toolkit
-          </h2>
-          <p className="text-muted-foreground text-base md:text-lg">
-            A structured overview of the technologies and patterns I work with daily.
-          </p>
+        <div className="reveal mb-12">
+          <div className="label-mint mb-3">Skills</div>
+          <h2 className="text-3xl md:text-[36px] font-bold text-foreground">What I work with</h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
-          {groups.map((g, i) => (
-            <div
-              key={g.title}
-              className={`reveal p-7 rounded-xl bg-card border border-border shadow-soft ${
-                i === 0 ? "md:col-span-2" : ""
-              }`}
-            >
-              <div className="flex items-center gap-3 mb-5">
-                <span className="w-1.5 h-6 rounded-full bg-gradient-accent" />
-                <h3 className="text-lg font-semibold text-navy">{g.title}</h3>
-              </div>
+        <div className="space-y-10">
+          {groups.map((g) => (
+            <div key={g.title} className="reveal">
+              <div className="label-mint mb-4">{g.title}</div>
               <div className="flex flex-wrap gap-2">
                 {g.items.map((item) => (
-                  <span
-                    key={item}
-                    className="px-3 py-1.5 rounded-md bg-secondary text-secondary-foreground text-sm font-medium border border-border hover:border-electric hover:text-electric transition-smooth"
-                  >
-                    {item}
-                  </span>
+                  <span key={item} className="skill-pill">{item}</span>
                 ))}
               </div>
             </div>

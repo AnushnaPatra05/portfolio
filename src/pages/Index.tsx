@@ -1,42 +1,35 @@
-import Navbar from "@/components/portfolio/Navbar";
 import Hero from "@/components/portfolio/Hero";
 import About from "@/components/portfolio/About";
 import Skills from "@/components/portfolio/Skills";
 import Projects from "@/components/portfolio/Projects";
 import Experience from "@/components/portfolio/Experience";
-import Certifications from "@/components/portfolio/Certifications";
 import Contact from "@/components/portfolio/Contact";
-import Footer from "@/components/portfolio/Footer";
-import { useReveal } from "@/hooks/use-reveal";
+import PageLayout from "@/components/portfolio/PageLayout";
 import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 const Index = () => {
-  useReveal();
+  const { hash } = useLocation();
 
   useEffect(() => {
-    document.title = "Anushna Patra — Programmer Analyst & Angular Frontend Developer";
-    const desc = "Portfolio of Anushna Patra, Programmer Analyst at Cognizant specialising in scalable, reactive Angular applications with 3 years of experience.";
-    let meta = document.querySelector('meta[name="description"]');
-    if (!meta) {
-      meta = document.createElement("meta");
-      meta.setAttribute("name", "description");
-      document.head.appendChild(meta);
+    if (hash) {
+      const el = document.querySelector(hash);
+      if (el) setTimeout(() => el.scrollIntoView({ behavior: "smooth" }), 50);
     }
-    meta.setAttribute("content", desc);
-  }, []);
+  }, [hash]);
 
   return (
-    <main>
-      <Navbar />
+    <PageLayout
+      title="Anushna Patra — Angular Frontend Developer"
+      description="Portfolio of Anushna Patra, Programmer Analyst at Cognizant with 3 years of experience in scalable, reactive Angular applications."
+    >
       <Hero />
       <About />
       <Skills />
-      <Projects />
       <Experience />
-      <Certifications />
+      <Projects />
       <Contact />
-      <Footer />
-    </main>
+    </PageLayout>
   );
 };
 

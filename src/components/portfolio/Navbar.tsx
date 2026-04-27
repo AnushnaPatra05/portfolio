@@ -1,71 +1,72 @@
 import { useEffect, useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Download, Menu, X } from "lucide-react";
+import { Link, NavLink, useLocation } from "react-router-dom";
+import { Menu, X } from "lucide-react";
 
 const links = [
-  { href: "#about", label: "About" },
-  { href: "#skills", label: "Skills" },
-  { href: "#projects", label: "Projects" },
-  { href: "#experience", label: "Experience" },
-  { href: "#certifications", label: "Certifications" },
-  { href: "#contact", label: "Contact" },
+  { to: "/", label: "Home" },
+  { to: "/about", label: "About" },
+  { to: "/projects", label: "Projects" },
+  { to: "/academics", label: "Academics" },
+  { to: "/hobbies", label: "Hobbies" },
 ];
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const { pathname } = useLocation();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    const onScroll = () => setScrolled(window.scrollY > 10);
+    onScroll();
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => setOpen(false), [pathname]);
+
   return (
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-smooth ${
-        scrolled
-          ? "bg-background/90 backdrop-blur-md border-b border-border shadow-soft"
-          : "bg-transparent"
+        scrolled ? "bg-background/85 backdrop-blur-md border-b border-subtle" : "bg-transparent"
       }`}
     >
       <nav className="container-narrow flex items-center justify-between h-16 md:h-20">
-        <a href="#hero" className="flex items-center gap-2 group">
-          <span className="w-9 h-9 rounded-md bg-gradient-accent grid place-items-center text-accent-foreground font-bold shadow-accent">
+        <Link to="/" className="flex items-center gap-2.5">
+          <span className="w-9 h-9 rounded-md border border-mint text-mint grid place-items-center font-bold tracking-tight">
             AP
           </span>
-          <span className={`font-semibold hidden sm:inline ${scrolled ? "text-navy" : "text-white"}`}>
-            Anushna Patra
-          </span>
-        </a>
+          <span className="font-semibold text-foreground hidden sm:inline">Anushna Patra</span>
+        </Link>
 
         <ul className="hidden lg:flex items-center gap-8">
           {links.map((l) => (
-            <li key={l.href}>
-              <a
-                href={l.href}
-                className={`text-sm font-medium transition-smooth hover:text-electric ${
-                  scrolled ? "text-navy" : "text-white/90"
-                }`}
+            <li key={l.to}>
+              <NavLink
+                to={l.to}
+                end={l.to === "/"}
+                className={({ isActive }) =>
+                  `text-sm font-medium transition-smooth hover:text-mint ${
+                    isActive ? "text-mint" : "text-foreground/80"
+                  }`
+                }
               >
                 {l.label}
-              </a>
+              </NavLink>
             </li>
           ))}
-        </ul>
-
-        <div className="hidden lg:flex items-center gap-3">
-          <Button asChild variant="accent" size="sm">
-            <a href="#" download>
-              <Download className="w-4 h-4" />
-              Download CV
+          <li>
+            <a
+              href={pathname === "/" ? "#contact" : "/#contact"}
+              className="text-sm font-medium text-foreground/80 hover:text-mint transition-smooth"
+            >
+              Contact
             </a>
-          </Button>
-        </div>
+          </li>
+        </ul>
 
         <button
           onClick={() => setOpen((v) => !v)}
-          className={`lg:hidden p-2 ${scrolled ? "text-navy" : "text-white"}`}
+          className="lg:hidden p-2 text-foreground"
           aria-label="Toggle menu"
         >
           {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -73,26 +74,25 @@ const Navbar = () => {
       </nav>
 
       {open && (
-        <div className="lg:hidden bg-background border-t border-border">
+        <div className="lg:hidden bg-background border-t border-subtle">
           <ul className="container-narrow py-4 flex flex-col gap-1">
             {links.map((l) => (
-              <li key={l.href}>
-                <a
-                  href={l.href}
-                  onClick={() => setOpen(false)}
-                  className="block py-3 text-navy font-medium"
+              <li key={l.to}>
+                <NavLink
+                  to={l.to}
+                  end={l.to === "/"}
+                  className={({ isActive }) =>
+                    `block py-3 font-medium ${isActive ? "text-mint" : "text-foreground/80"}`
+                  }
                 >
                   {l.label}
-                </a>
+                </NavLink>
               </li>
             ))}
-            <li className="pt-2">
-              <Button asChild variant="accent" className="w-full">
-                <a href="#" download>
-                  <Download className="w-4 h-4" />
-                  Download CV
-                </a>
-              </Button>
+            <li>
+              <a href={pathname === "/" ? "#contact" : "/#contact"} className="block py-3 text-foreground/80">
+                Contact
+              </a>
             </li>
           </ul>
         </div>
