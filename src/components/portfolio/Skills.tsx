@@ -40,7 +40,19 @@ const Skills = ({ id = "skills" }: { id?: string }) => {
               <div className="label-mint mb-4">{g.title}</div>
               <div className="flex flex-wrap gap-2">
                 {g.items.map((item) => (
-                  <span key={item} className="skill-pill">{item}</span>
+                  <span
+                    key={item}
+                    className="inline-flex items-center text-foreground"
+                    style={{
+                      backgroundColor: "#2A2A2D",
+                      border: "0.5px solid rgba(255,255,255,0.1)",
+                      fontSize: "13px",
+                      borderRadius: "999px",
+                      padding: "4px 14px",
+                    }}
+                  >
+                    {item}
+                  </span>
                 ))}
               </div>
             </div>
