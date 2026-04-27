@@ -8,27 +8,23 @@ export default {
     container: {
       center: true,
       padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
+      screens: { "2xl": "1400px" },
     },
     extend: {
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
       },
       colors: {
-        border: "hsl(var(--border))",
+        border: "hsl(var(--border) / 0.08)",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-        navy: {
-          DEFAULT: "hsl(var(--navy))",
-          light: "hsl(var(--navy-light))",
-        },
-        electric: {
-          DEFAULT: "hsl(var(--electric))",
-          light: "hsl(var(--electric-light))",
+        charcoal: "hsl(var(--charcoal))",
+        surface: "hsl(var(--surface))",
+        mint: {
+          DEFAULT: "hsl(var(--mint))",
+          deep: "hsl(var(--mint-deep))",
         },
         primary: {
           DEFAULT: "hsl(var(--primary))",
