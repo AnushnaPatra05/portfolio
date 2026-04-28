@@ -29,7 +29,7 @@ const Index = () => {
       <Skills />
       <Experience />
       <Projects />
-      <Certifications />
+      {/* <Certifications /> */}
       <Contact />
     </PageLayout>
   );
