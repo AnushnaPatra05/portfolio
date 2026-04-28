@@ -1,21 +1,17 @@
 import { Button } from "@/components/ui/button";
-import { ArrowUpRight, Github } from "lucide-react";
+import { Tooltip, TooltipContent, TooltipTrigger, TooltipProvider } from "@/components/ui/tooltip";
+import { ArrowUpRight } from "lucide-react";
 
 export const projects = [
   {
-    title: "ReactiveForm Suite",
-    desc: "A multi-step form application with custom async validators, cross-field validation logic, and real-time error feedback using Angular Reactive Forms.",
-    tags: ["Angular", "Reactive Forms", "Custom Validators", "SCSS"],
+    title: "WCT — Workforce Compliance Tracker",
+    desc: "An enterprise-grade Angular application built for workforce compliance management at scale. The system fetches employee records from a relational database and applies intelligent filtering logic based on each user's last sign-in date to identify compliance gaps. Once the filtered dataset is prepared, the application triggers personalised automated emails to each user individually — each containing a secure login link to the application. Emails are dispatched in the user's preferred language, ensuring accessibility across a multilingual workforce. Every email event is subsequently logged to a dedicated audit table for full traceability and compliance reporting.",
+    tags: ["Angular", "Java", "AWS", "REST API", "SQL", "Multilingual", "Email Automation"],
   },
   {
-    title: "NgRx Dashboard",
-    desc: "A data-rich admin dashboard with global state via NgRx, REST API integration, loading/error states, and dynamic data tables.",
-    tags: ["Angular", "NgRx", "REST API", "Bootstrap"],
-  },
-  {
-    title: "RxJS Stream Manager",
-    desc: "A real-time interface using switchMap, combineLatest, debounceTime and forkJoin to manage concurrent API calls and live UI updates.",
-    tags: ["Angular", "RxJS", "TypeScript", "SCSS"],
+    title: "SASSY — Safety Advisory Services System",
+    desc: "A sophisticated Angular-based pre-sales platform designed to streamline the safety advisory workflow between prevention experts, brokers, and underwriters. SASSY sits at the heart of the customer and broker pre-sales journey, enabling prevention specialists to deliver structured safety recommendations that directly inform underwriting decisions. The system captures expert safety input, digitises the advisory process, and ensures that risk assessments are consistently communicated to support customer safety outcomes and policy accuracy.",
+    tags: ["Angular", "TypeScript", "REST API", "SCSS", "Enterprise UI"],
   },
 ];
 
@@ -32,47 +28,60 @@ const Projects = ({ showHeader = true, id = "projects" }: Props) => {
           </div>
         )}
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((p, i) => (
-            <article
-              key={p.title}
-              className="reveal group relative flex flex-col rounded-xl bg-card border border-subtle hover:border-mint transition-smooth overflow-hidden"
-              style={{ transitionDelay: `${i * 60}ms` }}
-            >
-              <div className="h-[3px] w-full bg-mint" />
-              <div className="p-6 flex flex-col flex-1">
-                <h3 className="text-lg font-semibold text-foreground mb-3">{p.title}</h3>
-                <p className="text-sm text-secondary-muted leading-relaxed mb-5 flex-grow">{p.desc}</p>
+        <TooltipProvider delayDuration={150}>
+          <div className="grid md:grid-cols-2 gap-6">
+            {projects.map((p, i) => (
+              <article
+                key={p.title}
+                className="reveal group relative flex flex-col rounded-xl border border-subtle overflow-hidden"
+                style={{
+                  backgroundColor: "#2A2A2D",
+                  borderRadius: "12px",
+                  transitionDelay: `${i * 60}ms`,
+                }}
+              >
+                <div className="h-[3px] w-full bg-mint" />
+                <div className="p-6 flex flex-col flex-1">
+                  <h3 className="text-lg font-semibold text-foreground mb-3">{p.title}</h3>
+                  <p className="text-sm text-secondary-muted leading-relaxed mb-5 flex-grow">
+                    {p.desc}
+                  </p>
 
-                <div className="flex flex-wrap gap-1.5 mb-6">
-                  {p.tags.map((t) => (
-                    <span
-                      key={t}
-                      className="px-2 py-0.5 rounded text-[11px] font-medium text-mint border border-mint/30"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
+                  <div className="flex flex-wrap gap-1.5 mb-6">
+                    {p.tags.map((t) => (
+                      <span
+                        key={t}
+                        className="px-2 py-0.5 rounded text-[11px] font-medium text-mint border border-mint/30"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
 
-                <div className="flex items-center gap-2">
-                  <Button asChild variant="outlineMint" size="sm">
-                    <a href="#">
-                      View Project
-                      <ArrowUpRight className="w-4 h-4" />
-                    </a>
-                  </Button>
-                  <Button asChild variant="ghostMint" size="sm">
-                    <a href="#" aria-label="GitHub">
-                      <Github className="w-4 h-4" />
-                      GitHub
-                    </a>
-                  </Button>
+                  <div className="flex items-center gap-2">
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <span tabIndex={0} className="inline-flex">
+                          <Button
+                            variant="outlineMint"
+                            size="sm"
+                            disabled
+                            aria-disabled="true"
+                            className="opacity-50 cursor-not-allowed pointer-events-none"
+                          >
+                            View Project
+                            <ArrowUpRight className="w-4 h-4" />
+                          </Button>
+                        </span>
+                      </TooltipTrigger>
+                      <TooltipContent>Private — Cognizant project</TooltipContent>
+                    </Tooltip>
+                  </div>
                 </div>
-              </div>
-            </article>
-          ))}
-        </div>
+              </article>
+            ))}
+          </div>
+        </TooltipProvider>
       </div>
     </section>
   );
