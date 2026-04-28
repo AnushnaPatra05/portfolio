@@ -38,6 +38,10 @@ const groups = [
     title: "APIs & Data",
     items: ["RESTful APIs", "JSON"],
   },
+  {
+    title: "Unit Testing",
+    items: ["Karma", "Jasmine"],
+  },
 ];
 
 const Skills = ({ id = "skills" }: { id?: string }) => {
