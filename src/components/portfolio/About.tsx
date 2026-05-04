@@ -1,6 +1,6 @@
 const stats = [
   { value: "3+", label: "Years Experience" },
-  { value: "Building", label: "Angular Projects" },
+  { value: "Building", label: "Web Applications" },
   { value: "Cognizant", label: "Current Employer" },
   { value: "B.Tech", label: "Graduate 2023" },
 ];
