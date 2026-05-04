@@ -82,6 +82,7 @@ const Contact = () => {
       if (!res.ok) throw new Error("Request failed");
       setSent(true);
       setForm({ name: "", email: "", message: "" });
+      setTimeout(() => setSent(false), 5000);
     } catch {
       setServerError("Something went wrong. Please try again.");
     } finally {
@@ -98,23 +99,23 @@ const Contact = () => {
         </div>
 
         <div className="grid md:grid-cols-2 gap-10 items-center">
-          {/* Left: Form or success */}
-          {sent ? (
-            <div
-              className="reveal flex items-center justify-center text-center"
-              style={{
-                backgroundColor: "#2A2A2D",
-                borderRadius: "12px",
-                padding: "32px",
-                minHeight: "320px",
-                border: "0.5px solid rgba(62,207,164,0.4)",
-              }}
-            >
-              <p className="text-mint text-lg font-medium">
-                Message sent! I'll get back to you soon.
-              </p>
-            </div>
-          ) : (
+          {/* Left: Form (always visible) */}
+          <div>
+            {sent && (
+              <div
+                className="reveal mb-4 text-center"
+                style={{
+                  backgroundColor: "rgba(62,207,164,0.1)",
+                  borderRadius: "12px",
+                  padding: "12px 16px",
+                  border: "0.5px solid rgba(62,207,164,0.4)",
+                }}
+              >
+                <p className="text-mint text-sm font-medium">
+                  ✓ Message sent! I'll get back to you soon.
+                </p>
+              </div>
+            )}
             <form
               onSubmit={onSubmit}
               className="reveal"
@@ -186,7 +187,7 @@ const Contact = () => {
                 )}
               </div>
             </form>
-          )}
+          </div>
 
           {/* Right: Links */}
           <div className="reveal">
