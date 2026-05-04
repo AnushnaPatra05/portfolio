@@ -43,13 +43,6 @@ const links: ContactLink[] = [
     href: "mailto:anushnapatrashreya@gmail.com",
     mintValue: true,
   },
-  {
-    icon: Phone,
-    label: "Phone",
-    value: "+91 75950 29257",
-    href: "tel:+917595029257",
-    mintValue: true,
-  },
 ];
 
 const Contact = () => {
