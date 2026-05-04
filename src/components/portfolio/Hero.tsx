@@ -60,7 +60,7 @@ const Hero = () => {
               </Link>
             </Button>
             <Button asChild variant="outlineLight" size="lg">
-              <a href="/cv.docx" download="Anushna_Patra_CV.docx">
+              <a href="/public/cv.docx" download="Anushna_Patra_CV.docx">
                 <Download className="w-4 h-4" />
                 Download CV
               </a>
