@@ -187,7 +187,7 @@ const Contact = () => {
                 )}
               </div>
             </form>
-          )}
+          </div>
 
           {/* Right: Links */}
           <div className="reveal">
