@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Download, ChevronDown } from "lucide-react";
+import { CV_DOWNLOAD_URL } from "@/config/cv";
 
 const roles = ["Programmer Analyst", "Angular Developer", "UI Engineer", "Problem Solver"];
 
@@ -60,7 +61,7 @@ const Hero = () => {
               </Link>
             </Button>
             <Button asChild variant="outlineLight" size="lg">
-              <a href="/public/cv.docx" download="Anushna_Patra_CV.docx">
+              <a href={CV_DOWNLOAD_URL} target="_blank" rel="noopener noreferrer">
                 <Download className="w-4 h-4" />
                 Download CV
               </a>
