@@ -2,9 +2,6 @@ const certs = [
   { title: "Certification Title", issuer: "Issuing Organization", date: "Month Year" },
   { title: "Certification Title", issuer: "Issuing Organization", date: "Month Year" },
   { title: "Certification Title", issuer: "Issuing Organization", date: "Month Year" },
-  { title: "Certification Title", issuer: "Issuing Organization", date: "Month Year" },
-  { title: "Certification Title", issuer: "Issuing Organization", date: "Month Year" },
-  { title: "Certification Title", issuer: "Issuing Organization", date: "Month Year" },
 ];
 
 const Certifications = () => {
