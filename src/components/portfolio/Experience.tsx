@@ -74,7 +74,7 @@ const Experience = () => {
               <div key={i} className="timeline-entry relative pl-10">
                 <span className="timeline-dot absolute left-0 top-1.5 w-4 h-4 rounded-full bg-mint ring-4 ring-background" />
 
-                <div className="p-6 rounded-xl bg-card border border-subtle hover:border-mint/50 transition-smooth">
+                <div className="p-6 glass-panel hover:border-mint/50">
                   <div className="flex flex-wrap items-center gap-3 mb-2">
                     {e.current && (
                       <span className="px-2.5 py-0.5 rounded bg-mint text-primary-foreground text-xs font-semibold">
