@@ -333,48 +333,49 @@
   }
 
   /* Glass buttons */
-  .glass-btn-primary {
-    background: rgba(62,207,164,0.18);
-    border: 0.5px solid rgba(62,207,164,0.40);
-    color: #3ECFA4;
+  .glass-btn-primary,
+  .glass-btn-primary:hover {
+    background: rgba(62,207,164,0.18) !important;
+    border: 0.5px solid rgba(62,207,164,0.40) !important;
+    color: #3ECFA4 !important;
     -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
-    border-radius: 999px;
+    border-radius: 999px !important;
     transition: all 200ms ease;
   }
   .glass-btn-primary:hover {
-    background: rgba(62,207,164,0.28);
-    border-color: rgba(62,207,164,0.60);
+    background: rgba(62,207,164,0.28) !important;
+    border-color: rgba(62,207,164,0.60) !important;
   }
   html.light .glass-btn-primary {
-    background: rgba(62,207,164,0.15);
-    border-color: rgba(62,207,164,0.35);
-    color: #0a6e56;
+    background: rgba(62,207,164,0.15) !important;
+    border-color: rgba(62,207,164,0.35) !important;
+    color: #0a6e56 !important;
   }
   html.light .glass-btn-primary:hover {
-    background: rgba(62,207,164,0.25);
+    background: rgba(62,207,164,0.25) !important;
   }
 
   .glass-btn-secondary {
-    background: rgba(255,255,255,0.06);
-    border: 0.5px solid rgba(255,255,255,0.12);
-    color: #ffffff;
+    background: rgba(255,255,255,0.06) !important;
+    border: 0.5px solid rgba(255,255,255,0.12) !important;
+    color: #ffffff !important;
     -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
-    border-radius: 999px;
+    border-radius: 999px !important;
     transition: all 200ms ease;
   }
   .glass-btn-secondary:hover {
-    background: rgba(255,255,255,0.12);
-    border-color: rgba(255,255,255,0.20);
+    background: rgba(255,255,255,0.12) !important;
+    border-color: rgba(255,255,255,0.20) !important;
   }
   html.light .glass-btn-secondary {
-    background: rgba(0,0,0,0.04);
-    border-color: rgba(0,0,0,0.10);
-    color: #111111;
+    background: rgba(0,0,0,0.04) !important;
+    border-color: rgba(0,0,0,0.10) !important;
+    color: #111111 !important;
   }
   html.light .glass-btn-secondary:hover {
-    background: rgba(0,0,0,0.08);
+    background: rgba(0,0,0,0.08) !important;
   }
 
   /* Glass form input */
