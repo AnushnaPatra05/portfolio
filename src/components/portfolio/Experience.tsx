@@ -73,20 +73,6 @@ const Experience = () => {
             {entries.map((e, i) => (
               <div key={i} className="timeline-entry relative pl-10">
                 <span className="timeline-dot absolute left-0 top-1.5 w-4 h-4 rounded-full bg-mint ring-4 ring-background" />
-    <section id="experience" className="section-padding bg-background">
-      <div className="container-narrow">
-        <div className="reveal mb-12">
-          <div className="label-mint mb-3">Experience</div>
-          <h2 className="text-3xl md:text-[36px] font-bold gradient-text">My Journey</h2>
-        </div>
-
-        <div ref={sectionRef} className={`relative max-w-3xl ${active ? "timeline-active" : ""}`}>
-          <div className="timeline-line absolute left-[7px] top-2 bottom-2 w-0.5 bg-mint" />
-
-          <div className="space-y-10">
-            {entries.map((e, i) => (
-              <div key={i} className="timeline-entry relative pl-10">
-                <span className="absolute left-0 top-1.5 w-4 h-4 rounded-full bg-mint ring-4 ring-background" />
 
                 <div className="p-6 rounded-xl bg-card border border-subtle hover:border-mint/50 transition-smooth">
                   <div className="flex flex-wrap items-center gap-3 mb-2">
