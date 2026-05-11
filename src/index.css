@@ -215,12 +215,186 @@
 
   /* Liquid-glass navbar */
   .navbar-glass {
-    background: var(--navbar-bg);
+    background: rgba(28, 28, 30, 0.55);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    backdrop-filter: blur(24px) saturate(180%);
+    border-bottom: 0.5px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 32px rgba(0, 0, 0, 0.25);
+    transition: background-color 300ms ease, border-color 300ms ease, box-shadow 300ms ease;
+  }
+  html.light .navbar-glass {
+    background: rgba(255, 255, 255, 0.45);
+    -webkit-backdrop-filter: blur(24px) saturate(160%);
+    backdrop-filter: blur(24px) saturate(160%);
+    border-bottom: 0.5px solid rgba(255, 255, 255, 0.60);
+    box-shadow: 0 4px 32px rgba(0, 0, 0, 0.06);
+  }
+
+  /* ===== Liquid glass utilities ===== */
+  .glass-base {
+    background: rgba(255,255,255,0.08);
+    border: 0.5px solid rgba(255,255,255,0.10);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
     backdrop-filter: blur(20px) saturate(180%);
-    border-bottom: 0.5px solid var(--navbar-border);
-    box-shadow: var(--navbar-shadow);
-    transition: background-color 300ms ease, border-color 300ms ease, box-shadow 300ms ease;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+  }
+  html.light .glass-base {
+    background: rgba(255,255,255,0.45);
+    border-color: rgba(255,255,255,0.60);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    backdrop-filter: blur(20px) saturate(160%);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  }
+
+  /* Project / Contact / large card */
+  .glass-card {
+    background: rgba(255,255,255,0.05);
+    border: 0.5px solid rgba(255,255,255,0.10);
+    -webkit-backdrop-filter: blur(16px) saturate(150%);
+    backdrop-filter: blur(16px) saturate(150%);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.20);
+    transition: all 250ms ease;
+  }
+  html.light .glass-card {
+    background: rgba(255,255,255,0.55);
+    border-color: rgba(255,255,255,0.70);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.07);
+  }
+  .glass-card-hover:hover {
+    background: rgba(255,255,255,0.09);
+    border-color: rgba(62,207,164,0.35);
+    transform: translateY(-4px);
+  }
+  html.light .glass-card-hover:hover {
+    background: rgba(255,255,255,0.75);
+    border-color: rgba(62,207,164,0.40);
+  }
+
+  /* Skill / timeline category card */
+  .glass-panel {
+    background: rgba(255,255,255,0.04);
+    border: 0.5px solid rgba(255,255,255,0.09);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border-radius: 14px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    transition: all 250ms ease;
+  }
+  html.light .glass-panel {
+    background: rgba(255,255,255,0.50);
+    border-color: rgba(255,255,255,0.65);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+  }
+
+  /* Certification card */
+  .glass-cert {
+    background: rgba(255,255,255,0.05);
+    border: 0.5px solid rgba(255,255,255,0.10);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    border-radius: 14px;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.18);
+    transition: all 250ms ease;
+  }
+  html.light .glass-cert {
+    background: rgba(255,255,255,0.55);
+    border-color: rgba(255,255,255,0.68);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.06);
+  }
+
+  /* Skill pill */
+  .glass-pill {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(255,255,255,0.07);
+    border: 0.5px solid rgba(255,255,255,0.12);
+    color: #ffffff;
+    border-radius: 999px;
+    padding: 4px 14px;
+    font-size: 12px;
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    transition: all 200ms ease;
+  }
+  .glass-pill:hover {
+    background: rgba(62,207,164,0.15);
+    border-color: rgba(62,207,164,0.30);
+    color: #3ECFA4;
+  }
+  html.light .glass-pill {
+    background: rgba(255,255,255,0.60);
+    border-color: rgba(0,0,0,0.08);
+    color: #111111;
+  }
+  html.light .glass-pill:hover {
+    background: rgba(62,207,164,0.12);
+    color: #0a6e56;
+  }
+
+  /* Glass buttons */
+  .glass-btn-primary {
+    background: rgba(62,207,164,0.18);
+    border: 0.5px solid rgba(62,207,164,0.40);
+    color: #3ECFA4;
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border-radius: 999px;
+    transition: all 200ms ease;
+  }
+  .glass-btn-primary:hover {
+    background: rgba(62,207,164,0.28);
+    border-color: rgba(62,207,164,0.60);
+  }
+  html.light .glass-btn-primary {
+    background: rgba(62,207,164,0.15);
+    border-color: rgba(62,207,164,0.35);
+    color: #0a6e56;
+  }
+  html.light .glass-btn-primary:hover {
+    background: rgba(62,207,164,0.25);
+  }
+
+  .glass-btn-secondary {
+    background: rgba(255,255,255,0.06);
+    border: 0.5px solid rgba(255,255,255,0.12);
+    color: #ffffff;
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border-radius: 999px;
+    transition: all 200ms ease;
+  }
+  .glass-btn-secondary:hover {
+    background: rgba(255,255,255,0.12);
+    border-color: rgba(255,255,255,0.20);
+  }
+  html.light .glass-btn-secondary {
+    background: rgba(0,0,0,0.04);
+    border-color: rgba(0,0,0,0.10);
+    color: #111111;
+  }
+  html.light .glass-btn-secondary:hover {
+    background: rgba(0,0,0,0.08);
+  }
+
+  /* Glass form input */
+  .glass-input {
+    background: rgba(255,255,255,0.06) !important;
+    border: 0.5px solid rgba(255,255,255,0.10) !important;
+    color: #ffffff !important;
+    border-radius: 10px !important;
+    transition: all 200ms ease;
+  }
+  html.light .glass-input {
+    background: rgba(255,255,255,0.55) !important;
+    border-color: rgba(0,0,0,0.10) !important;
+    color: #111111 !important;
+  }
+  .glass-input:focus,
+  .glass-input:focus-visible {
+    border-color: #3ECFA4 !important;
+    outline: none !important;
+    box-shadow: 0 0 0 3px rgba(62,207,164,0.15) !important;
   }
 
   /* Floating blobs (hero) */
