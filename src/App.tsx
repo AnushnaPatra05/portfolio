@@ -10,6 +10,7 @@ import ProjectsPage from "./pages/Projects.tsx";
 import Academics from "./pages/Academics.tsx";
 import Hobbies from "./pages/Hobbies.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import PageLoader from "./components/PageLoader";
 
 const queryClient = new QueryClient();
 
