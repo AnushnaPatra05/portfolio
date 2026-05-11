@@ -33,12 +33,8 @@ const Projects = ({ showHeader = true, id = "projects" }: Props) => {
             {projects.map((p, i) => (
               <article
                 key={p.title}
-                className="reveal group relative flex flex-col rounded-xl border border-subtle overflow-hidden"
-                style={{
-                  backgroundColor: "#2A2A2D",
-                  borderRadius: "12px",
-                  transitionDelay: `${i * 60}ms`,
-                }}
+                className="reveal group relative flex flex-col overflow-hidden glass-card glass-card-hover"
+                style={{ transitionDelay: `${i * 60}ms` }}
               >
                 <div className="h-[3px] w-full bg-mint" />
                 <div className="p-6 flex flex-col flex-1">
@@ -63,11 +59,10 @@ const Projects = ({ showHeader = true, id = "projects" }: Props) => {
                       <TooltipTrigger asChild>
                         <span tabIndex={0} className="inline-flex">
                           <Button
-                            variant="outlineMint"
                             size="sm"
                             disabled
                             aria-disabled="true"
-                            className="opacity-50 cursor-not-allowed pointer-events-none"
+                            className="glass-btn-secondary opacity-50 cursor-not-allowed pointer-events-none"
                           >
                             View Project
                             <ArrowUpRight className="w-4 h-4" />
