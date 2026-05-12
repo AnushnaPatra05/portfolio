@@ -25,7 +25,7 @@ const Index = () => {
       description="Portfolio of Anushna Patra, Programmer Analyst at Cognizant with 3 years of experience in scalable, reactive Angular applications."
     >
       <Hero />
-      <About />
+      
       <Skills />
       <Experience />
       <Projects />
