@@ -1,5 +1,5 @@
 import Hero from "@/components/portfolio/Hero";
-import About from "@/components/portfolio/About";
+
 import Skills from "@/components/portfolio/Skills";
 import Projects from "@/components/portfolio/Projects";
 import Experience from "@/components/portfolio/Experience";
@@ -25,7 +25,7 @@ const Index = () => {
       description="Portfolio of Anushna Patra, Programmer Analyst at Cognizant with 3 years of experience in scalable, reactive Angular applications."
     >
       <Hero />
-      <About />
+      
       <Skills />
       <Experience />
       <Projects />
