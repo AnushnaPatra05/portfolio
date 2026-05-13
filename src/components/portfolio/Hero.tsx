@@ -45,7 +45,7 @@ const Hero = () => {
         <div className="aurora-band a4" />
       </div>
 
-      <div className="hero-grid" style={{ position: "relative", zIndex: 2, width: "100%", minHeight: "100vh" }}>
+      <div className="hero-split-grid" style={{ position: "relative", zIndex: 2, width: "100%", minHeight: "100vh" }}>
         {/* LEFT */}
         <div className="hero-left-col">
           <div style={{ fontSize: 11, fontWeight: 500, letterSpacing: "0.12em", color: "#3ECFA4", textTransform: "uppercase" }}>
