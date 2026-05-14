@@ -11,17 +11,17 @@ const slideLabels = [
 ];
 
 const techLogos = [
-  { src: "/logos/angular.png", label: "Angular" },
-  { src: "/logos/rxjs.png", label: "RxJS" },
-  { src: "/logos/typescript.png", label: "TypeScript" },
-  { src: "/logos/javascript.png", label: "JavaScript" },
-  { src: "/logos/html5.png", label: "HTML5" },
-  { src: "/logos/css3.png", label: "CSS3" },
-  { src: "/logos/nodejs.png", label: "Node.js" },
-  { src: "/logos/restapi.png", label: "REST API" },
-  { src: "/logos/json.png", label: "JSON" },
-  { src: "/logos/mongodb.png", label: "MongoDB" },
-  { src: "/logos/karma-jasmine.png", label: "Karma & Jasmine" },
+  { src: "public/angular.jpg", label: "Angular" },
+  { src: "public/rxjs.jpg", label: "RxJS" },
+  { src: "public/ts.jpg", label: "TypeScript" },
+  // { src: "/logos/javascript.png", label: "JavaScript" },
+  { src: "public/html.jpg", label: "HTML5" },
+  { src: "public/csss.jpg", label: "CSS3" },
+  { src: "public/nodejs.jpg", label: "Node.js" },
+  { src: "public/restapi.jpg", label: "REST API" },
+  { src: "public/json.jpg", label: "JSON" },
+  { src: "public/mongodb.jpg", label: "MongoDB" },
+  { src: "public/karma-jasmine.jpg", label: "Karma & Jasmine" },
 ];
 
 const SLIDE_COUNT = 3;
