@@ -231,7 +231,7 @@ const Hero = () => {
             }}
           >
             <img
-              src="/profile.jpg"
+              src="public/photoANUSHNA.jpg"
               alt="Anushna Patra"
               style={{
                 width: "100%",
