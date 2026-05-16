@@ -390,7 +390,7 @@ const Hero = () => {
           .cts-logo-wrap {
             position: absolute;
 
-            top: 42px;
+            top: 30px;
             right: 60px;
 
             z-index: 5;
