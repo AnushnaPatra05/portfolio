@@ -10,18 +10,28 @@ const slideLabels = [
   "ABOUT ME",
 ];
 
-const techLogos = [
-  { src: "public/angular.jpg", label: "Angular" },
-  { src: "public/rxjs.jpg", label: "RxJS" },
-  { src: "public/ts.jpg", label: "TypeScript" },
-  // { src: "/logos/javascript.png", label: "JavaScript" },
-  { src: "public/html.jpg", label: "HTML5" },
-  { src: "public/csss.jpg", label: "CSS3" },
-  { src: "public/nodejs.jpg", label: "Node.js" },
-  { src: "public/restapi.jpg", label: "REST API" },
-  { src: "public/json.jpg", label: "JSON" },
-  { src: "public/mongodb.jpg", label: "MongoDB" },
-  { src: "public/karma-jasmine.jpg", label: "Karma & Jasmine" },
+type TechLogo = { src?: string; label: string; textPill?: { text: string; color: string; bg: string; border: string } };
+
+const techLogos: TechLogo[] = [
+  { src: "/angular.jpg", label: "Angular" },
+  { src: "/rxjs.jpg", label: "RxJS" },
+  { src: "/ts.jpg", label: "TypeScript" },
+  {
+    label: "JavaScript",
+    textPill: {
+      text: "JS",
+      color: "#f7df1e",
+      bg: "rgba(247,223,30,0.10)",
+      border: "rgba(247,223,30,0.25)",
+    },
+  },
+  { src: "/html.jpg", label: "HTML5" },
+  { src: "/css.jpg", label: "CSS3" },
+  { src: "/nodejs.jpg", label: "Node.js" },
+  { src: "/restapi.jpg", label: "REST API" },
+  { src: "/json.jpg", label: "JSON" },
+  { src: "/mongodb.jpg", label: "MongoDB" },
+  { src: "/karma-jasmine.jpg", label: "Karma & Jasmine" },
 ];
 
 const SLIDE_COUNT = 3;
