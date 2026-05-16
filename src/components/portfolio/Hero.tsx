@@ -166,14 +166,6 @@ const Hero = () => {
 
         <div className="cognizant-overlay" />
 
-        <div className="cts-logo-wrap">
-          <img
-            src="/ctslogo.jpg"
-            alt="Cognizant"
-            className="cts-logo"
-          />
-        </div>
-
         <SlideOverlay
           activeIndex={activeIndex}
           setActiveIndex={setActiveIndex}
@@ -251,9 +243,9 @@ const Hero = () => {
             gap: 72px;
 
             padding:
-              120px
+              100px
               80px
-              260px;
+              240px;
 
             z-index: 2;
           }
@@ -387,21 +379,6 @@ const Hero = () => {
               );
           }
 
-          .cts-logo-wrap {
-            position: absolute;
-
-            top: 30px;
-            right: 60px;
-
-            z-index: 5;
-          }
-
-          .cts-logo {
-            height: 34px;
-            object-fit: contain;
-            opacity: 0.92;
-          }
-
           /* ====================================== */
           /* TECH STACK */
           /* ====================================== */
@@ -444,9 +421,9 @@ const Hero = () => {
             justify-content: flex-start;
 
             padding:
-              110px
+              100px
               50px
-              420px;
+              390px;
           }
 
           .tech-title {
@@ -503,9 +480,9 @@ const Hero = () => {
               gap: 42px;
 
               padding:
-                120px
+                100px
                 40px
-                300px;
+                260px;
             }
 
             .hero-heading {
@@ -520,26 +497,27 @@ const Hero = () => {
           @media (max-width: 768px) {
 
             #hero {
-              min-height: 1050px !important;
+              min-height: 980px !important;
             }
 
             .hero-about-container {
               flex-direction: column;
 
               text-align: center;
-  gap: 24px;
 
-  padding:
-    30px
-    24px
-    350px;
+              gap: 24px;
+
+              padding:
+                40px
+                24px
+                300px;
             }
 
             .profile-image-wrap {
               width: 190px;
               height: 190px;
 
-              margin-top: 20px;
+              margin-top: 18px;
             }
 
             .profile-image {
@@ -557,25 +535,6 @@ const Hero = () => {
             .hero-tags {
               justify-content: center;
             }
-                  
-          .cts-logo-wrap {
-            position: absolute;
-
-            top: 24px;
-            right: 24px;
-
-            z-index: 5;
-          }
-
-          .cts-logo {
-            height: 34px;
-            object-fit: contain;
-            opacity: 0.92;
-          }
-
-            /* ====================================== */
-            /* MOBILE COGNIZANT FIX */
-            /* ====================================== */
 
             .cognizant-image {
 
@@ -592,9 +551,9 @@ const Hero = () => {
 
             .tech-stack-container {
               padding:
-                90px
+                70px
                 18px
-                340px;
+                300px;
             }
 
             .tech-title {
@@ -709,14 +668,14 @@ const SlideOverlay = ({
         zIndex: 10,
 
         padding: showHeroText
-          ? "40px 20px 60px"
-          : "24px 20px 40px",
+          ? "20px 20px 40px"
+          : "18px 20px 34px",
 
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
 
-        gap: showHeroText ? 14 : 10,
+        gap: showHeroText ? 12 : 10,
 
         textAlign: "center",
 
@@ -780,7 +739,7 @@ const SlideOverlay = ({
           justifyContent: "center",
 
           gap: 14,
-          marginTop: showHeroText ? 8 : 2,
+          marginTop: 4,
         }}
       >
         <button
@@ -829,7 +788,7 @@ const SlideOverlay = ({
         style={{
           display: "flex",
           gap: 8,
-          marginTop: 6,
+          marginTop: 4,
         }}
       >
         {[0, 1, 2].map((index) => {
