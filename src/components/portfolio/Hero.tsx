@@ -83,135 +83,8 @@ const Hero = () => {
         <ChevronRight className="w-5 h-5" />
       </button>
 
-      {/* SLIDE 0 — Cognizant */}
+           {/* SLIDE 0 — Profile */}
       <Slide active={activeIndex === 0}>
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            backgroundImage: "url(/ctsoffice.jpg), linear-gradient(135deg, #003d2e 0%, #1C1C1E 100%)",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundColor: "#003d2e",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background:
-              "linear-gradient(to top, rgba(0,0,0,0.90) 0%, rgba(0,0,0,0.40) 50%, rgba(0,0,0,0.20) 100%)",
-          }}
-        />
-        <div
-          className="slide-cog-logo"
-          style={{
-            position: "absolute",
-            top: 40,
-            right: 60,
-            display: "flex",
-            alignItems: "center",
-            gap: 8,
-          }}
-        >
-          <img
-            src="/ctslogo.jpg"
-            alt="Cognizant"
-            style={{ height: 28, width: "auto", objectFit: "contain", opacity: 0.9 }}
-            onError={(e) => {
-              const el = e.currentTarget;
-              el.style.display = "none";
-              const next = el.nextElementSibling as HTMLElement | null;
-              if (next) next.style.display = "block";
-            }}
-          />
-          <span
-            style={{
-              display: "none",
-              color: "#fff",
-              fontSize: 13,
-              letterSpacing: "0.15em",
-              opacity: 0.7,
-            }}
-          >
-            COGNIZANT
-          </span>
-        </div>
-        <SlideOverlay
-          activeIndex={activeIndex}
-          setActiveIndex={setActiveIndex}
-          scrollToProjects={scrollToProjects}
-        />
-      </Slide>
-
-      {/* SLIDE 1 — Tech Stack */}
-      <Slide active={activeIndex === 1}>
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background: "linear-gradient(135deg, #0d0d1a 0%, #1a1a2e 50%, #1C1C1E 100%)",
-          }}
-        />
-        <div
-          className="slide-tech-content"
-          style={{
-            position: "absolute",
-            top: 60,
-            left: 0,
-            right: 0,
-            bottom: 280,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            padding: "0 60px",
-            gap: 28,
-          }}
-        >
-          <h3 style={{ color: "#fff", fontSize: 20, fontWeight: 700, textAlign: "center", margin: 0 }}>
-            My Tech Stack
-          </h3>
-          <div
-            className="tech-grid"
-            style={{
-              width: "100%",
-              maxWidth: 860,
-              margin: "0 auto",
-              display: "grid",
-              gridTemplateColumns: "repeat(7, 1fr)",
-              gap: 20,
-            }}
-          >
-            {techLogos.map((t) => (
-              <TechItem key={t.label} src={t.src} label={t.label} textPill={t.textPill} />
-            ))}
-          </div>
-          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6, marginTop: 16 }}>
-            <img
-              src="/bootstrap.jpg"
-              alt="Bootstrap"
-              style={{
-                width: 52,
-                height: 52,
-                objectFit: "contain",
-                filter: "drop-shadow(0 2px 8px rgba(0,0,0,0.35))",
-              }}
-            />
-            <span style={{ fontSize: 10, color: "rgba(255,255,255,0.60)", textAlign: "center" }}>
-              Bootstrap
-            </span>
-          </div>
-        </div>
-        <SlideOverlay
-          activeIndex={activeIndex}
-          setActiveIndex={setActiveIndex}
-          scrollToProjects={scrollToProjects}
-        />
-      </Slide>
-
-      {/* SLIDE 2 — Profile */}
-      <Slide active={activeIndex === 2}>
         <div
           style={{
             position: "absolute",
@@ -314,6 +187,135 @@ const Hero = () => {
           scrollToProjects={scrollToProjects}
         />
       </Slide>
+
+   {/* SLIDE 1 — Cognizant */}
+      <Slide active={activeIndex === 1}>
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            backgroundImage: "url(/ctsoffice.jpg), linear-gradient(135deg, #003d2e 0%, #1C1C1E 100%)",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundColor: "#003d2e",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background:
+              "linear-gradient(to top, rgba(0,0,0,0.90) 0%, rgba(0,0,0,0.40) 50%, rgba(0,0,0,0.20) 100%)",
+          }}
+        />
+        <div
+          className="slide-cog-logo"
+          style={{
+            position: "absolute",
+            top: 40,
+            right: 60,
+            display: "flex",
+            alignItems: "center",
+            gap: 8,
+          }}
+        >
+          <img
+            src="/ctslogo.jpg"
+            alt="Cognizant"
+            style={{ height: 28, width: "auto", objectFit: "contain", opacity: 0.9 }}
+            onError={(e) => {
+              const el = e.currentTarget;
+              el.style.display = "none";
+              const next = el.nextElementSibling as HTMLElement | null;
+              if (next) next.style.display = "block";
+            }}
+          />
+          <span
+            style={{
+              display: "none",
+              color: "#fff",
+              fontSize: 13,
+              letterSpacing: "0.15em",
+              opacity: 0.7,
+            }}
+          >
+            COGNIZANT
+          </span>
+        </div>
+        <SlideOverlay
+          activeIndex={activeIndex}
+          setActiveIndex={setActiveIndex}
+          scrollToProjects={scrollToProjects}
+        />
+      </Slide>
+      
+      {/* SLIDE 2 — Tech Stack */}
+      <Slide active={activeIndex === 2}>
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background: "linear-gradient(135deg, #0d0d1a 0%, #1a1a2e 50%, #1C1C1E 100%)",
+          }}
+        />
+        <div
+          className="slide-tech-content"
+          style={{
+            position: "absolute",
+            top: 60,
+            left: 0,
+            right: 0,
+            bottom: 280,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: "0 60px",
+            gap: 28,
+          }}
+        >
+          <h3 style={{ color: "#fff", fontSize: 20, fontWeight: 700, textAlign: "center", margin: 0 }}>
+            My Tech Stack
+          </h3>
+          <div
+            className="tech-grid"
+            style={{
+              width: "100%",
+              maxWidth: 860,
+              margin: "0 auto",
+              display: "grid",
+              gridTemplateColumns: "repeat(7, 1fr)",
+              gap: 20,
+            }}
+          >
+            {techLogos.map((t) => (
+              <TechItem key={t.label} src={t.src} label={t.label} textPill={t.textPill} />
+            ))}
+          </div>
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6, marginTop: 16 }}>
+            <img
+              src="/bootstrap.jpg"
+              alt="Bootstrap"
+              style={{
+                width: 52,
+                height: 52,
+                objectFit: "contain",
+                filter: "drop-shadow(0 2px 8px rgba(0,0,0,0.35))",
+              }}
+            />
+            <span style={{ fontSize: 10, color: "rgba(255,255,255,0.60)", textAlign: "center" }}>
+              Bootstrap
+            </span>
+          </div>
+        </div>
+        <SlideOverlay
+          activeIndex={activeIndex}
+          setActiveIndex={setActiveIndex}
+          scrollToProjects={scrollToProjects}
+        />
+      </Slide>
+
+    
 
       {/* Scroll chevron */}
       <a
