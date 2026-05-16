@@ -89,7 +89,7 @@ const Hero = () => {
           style={{
             position: "absolute",
             inset: 0,
-            backgroundImage: "url(public/ctsoffice.jpg)",
+            backgroundImage: "url(/ctsoffice.jpg), linear-gradient(135deg, #003d2e 0%, #1C1C1E 100%)",
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundColor: "#003d2e",
