@@ -81,7 +81,9 @@ const Hero = () => {
         background: "#0B1020",
       }}
     >
+      {/* ====================================== */}
       {/* ARROWS */}
+      {/* ====================================== */}
 
       <button
         onClick={goPrev}
@@ -100,7 +102,7 @@ const Hero = () => {
       </button>
 
       {/* ====================================== */}
-      {/* SLIDE 0 */}
+      {/* SLIDE 0 — ABOUT */}
       {/* ====================================== */}
 
       <Slide active={activeIndex === 0}>
@@ -156,7 +158,7 @@ const Hero = () => {
       </Slide>
 
       {/* ====================================== */}
-      {/* SLIDE 1 */}
+      {/* SLIDE 1 — COGNIZANT */}
       {/* ====================================== */}
 
       <Slide active={activeIndex === 1}>
@@ -172,7 +174,7 @@ const Hero = () => {
       </Slide>
 
       {/* ====================================== */}
-      {/* SLIDE 2 */}
+      {/* SLIDE 2 — TECH STACK */}
       {/* ====================================== */}
 
       <Slide active={activeIndex === 2}>
@@ -199,13 +201,17 @@ const Hero = () => {
         />
       </Slide>
 
-      {/* SCROLL */}
+      {/* ====================================== */}
+      {/* SCROLL DOWN */}
+      {/* ====================================== */}
 
       <a href="#skills" className="scroll-down">
         <ChevronDown className="w-6 h-6" />
       </a>
 
+      {/* ====================================== */}
       {/* STYLES */}
+      {/* ====================================== */}
 
       <style>
         {`
@@ -222,7 +228,9 @@ const Hero = () => {
               );
           }
 
+          /* ====================================== */
           /* ABOUT */
+          /* ====================================== */
 
           .hero-about-container {
             position: absolute;
@@ -237,7 +245,7 @@ const Hero = () => {
             padding:
               100px
               80px
-              220px;
+              240px;
 
             z-index: 2;
           }
@@ -327,7 +335,9 @@ const Hero = () => {
             font-size: 12px;
           }
 
+          /* ====================================== */
           /* COGNIZANT */
+          /* ====================================== */
 
           .cognizant-image {
             position: absolute;
@@ -343,7 +353,11 @@ const Hero = () => {
 
             background-color: #0B1020;
 
+            image-rendering: auto;
+
             transform: scale(1.005);
+
+            will-change: transform;
           }
 
           .cognizant-overlay {
@@ -356,10 +370,18 @@ const Hero = () => {
                 rgba(3, 7, 18, 0.92) 0%,
                 rgba(3, 7, 18, 0.55) 38%,
                 rgba(3, 7, 18, 0.22) 100%
+              ),
+
+              linear-gradient(
+                to right,
+                rgba(11,16,32,0.40),
+                rgba(11,16,32,0.12)
               );
           }
 
-          /* TECH */
+          /* ====================================== */
+          /* TECH STACK */
+          /* ====================================== */
 
           .tech-background {
             position: absolute;
@@ -399,9 +421,9 @@ const Hero = () => {
             justify-content: flex-start;
 
             padding:
-              90px
+              100px
               50px
-              320px;
+              390px;
           }
 
           .tech-title {
@@ -427,7 +449,9 @@ const Hero = () => {
             justify-items: center;
           }
 
+          /* ====================================== */
           /* SCROLL */
+          /* ====================================== */
 
           .scroll-down {
             position: absolute;
@@ -442,7 +466,9 @@ const Hero = () => {
             color: #3ECFA4;
           }
 
+          /* ====================================== */
           /* TABLET */
+          /* ====================================== */
 
           @media (max-width: 1024px) {
 
@@ -454,9 +480,9 @@ const Hero = () => {
               gap: 42px;
 
               padding:
-                90px
+                100px
                 40px
-                220px;
+                260px;
             }
 
             .hero-heading {
@@ -464,12 +490,14 @@ const Hero = () => {
             }
           }
 
+          /* ====================================== */
           /* MOBILE */
+          /* ====================================== */
 
           @media (max-width: 768px) {
 
             #hero {
-              min-height: 930px !important;
+              min-height: 980px !important;
             }
 
             .hero-about-container {
@@ -477,19 +505,19 @@ const Hero = () => {
 
               text-align: center;
 
-              gap: 22px;
+              gap: 24px;
 
               padding:
-                30px
+                40px
                 24px
-                230px;
+                300px;
             }
 
             .profile-image-wrap {
-              width: 180px;
-              height: 180px;
+              width: 190px;
+              height: 190px;
 
-              margin-top: 10px;
+              margin-top: 18px;
             }
 
             .profile-image {
@@ -497,11 +525,11 @@ const Hero = () => {
             }
 
             .hero-heading {
-              font-size: 34px;
+              font-size: 36px;
             }
 
             .hero-description {
-              font-size: 13px;
+              font-size: 14px;
             }
 
             .hero-tags {
@@ -509,6 +537,7 @@ const Hero = () => {
             }
 
             .cognizant-image {
+
               background-size: contain;
 
               background-position: center center;
@@ -522,22 +551,22 @@ const Hero = () => {
 
             .tech-stack-container {
               padding:
-                60px
+                70px
                 18px
-                220px;
+                300px;
             }
 
             .tech-title {
-              font-size: 24px;
+              font-size: 26px;
 
-              margin-bottom: 30px;
+              margin-bottom: 36px;
             }
 
             .tech-grid {
               grid-template-columns:
                 repeat(3, 1fr);
 
-              gap: 18px 8px;
+              gap: 22px 10px;
             }
           }
         `}
@@ -565,13 +594,13 @@ const TechItem = ({
         flexDirection: "column",
         alignItems: "center",
 
-        gap: 10,
+        gap: 12,
       }}
     >
       <div
         style={{
-          width: 70,
-          height: 70,
+          width: 74,
+          height: 74,
 
           borderRadius: 18,
 
@@ -596,8 +625,8 @@ const TechItem = ({
             alt={label}
             onError={() => setErrored(true)}
             style={{
-              width: 40,
-              height: 40,
+              width: 42,
+              height: 42,
               objectFit: "contain",
             }}
           />
@@ -609,7 +638,7 @@ const TechItem = ({
       <span
         style={{
           color: "rgba(255,255,255,0.72)",
-          fontSize: 11,
+          fontSize: 12,
           textAlign: "center",
           lineHeight: 1.4,
         }}
@@ -639,29 +668,29 @@ const SlideOverlay = ({
         zIndex: 10,
 
         padding: showHeroText
-          ? "8px 18px 18px"
-          : "10px 18px 16px",
+          ? "20px 20px 40px"
+          : "18px 20px 34px",
 
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
 
-        gap: showHeroText ? 8 : 6,
+        gap: showHeroText ? 12 : 10,
 
         textAlign: "center",
 
         background:
           activeIndex === 0
-            ? "linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.58) 60%, transparent 100%)"
-            : "linear-gradient(to top, rgba(0,0,0,0.86) 0%, rgba(0,0,0,0.20) 100%)",
+            ? "linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.55) 60%, transparent 100%)"
+            : "linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.25) 100%)",
       }}
     >
       <div
         style={{
           color: "#3ECFA4",
-          fontSize: 9,
+          fontSize: 11,
           fontWeight: 600,
-          letterSpacing: "0.14em",
+          letterSpacing: "0.16em",
         }}
       >
         {slideLabels[activeIndex]}
@@ -673,7 +702,7 @@ const SlideOverlay = ({
             style={{
               margin: 0,
 
-              fontSize: "clamp(26px, 5vw, 52px)",
+              fontSize: "clamp(34px, 6vw, 62px)",
 
               fontWeight: 800,
 
@@ -693,9 +722,9 @@ const SlideOverlay = ({
             style={{
               color: "#3ECFA4",
 
-              fontSize: "clamp(13px, 2vw, 18px)",
+              fontSize: "clamp(16px, 2vw, 24px)",
 
-              minHeight: 18,
+              minHeight: 28,
             }}
           >
             {roles[activeIndex]}
@@ -709,7 +738,8 @@ const SlideOverlay = ({
           flexWrap: "wrap",
           justifyContent: "center",
 
-          gap: 10,
+          gap: 14,
+          marginTop: 4,
         }}
       >
         <button
@@ -721,9 +751,9 @@ const SlideOverlay = ({
 
             borderRadius: 999,
 
-            padding: "9px 18px",
+            padding: "12px 28px",
 
-            fontSize: 12,
+            fontSize: 14,
             fontWeight: 600,
 
             cursor: "pointer",
@@ -743,10 +773,9 @@ const SlideOverlay = ({
 
             borderRadius: 999,
 
-            padding: "9px 18px",
+            padding: "12px 28px",
 
-            fontSize: 12,
-
+            fontSize: 14,
             textDecoration: "none",
             fontWeight: 500,
           }}
@@ -758,7 +787,8 @@ const SlideOverlay = ({
       <div
         style={{
           display: "flex",
-          gap: 7,
+          gap: 8,
+          marginTop: 4,
         }}
       >
         {[0, 1, 2].map((index) => {
@@ -769,8 +799,8 @@ const SlideOverlay = ({
               key={index}
               onClick={() => setActiveIndex(index)}
               style={{
-                width: active ? 22 : 6,
-                height: 6,
+                width: active ? 28 : 8,
+                height: 8,
 
                 borderRadius: 999,
 
@@ -825,8 +855,8 @@ const arrowStyle = (
 
   zIndex: 20,
 
-  width: 44,
-  height: 44,
+  width: 46,
+  height: 46,
 
   borderRadius: "50%",
 
@@ -845,7 +875,7 @@ const arrowStyle = (
 
   backdropFilter: "blur(10px)",
 
-  [side]: 18,
+  [side]: 24,
 });
 
 export default Hero;
