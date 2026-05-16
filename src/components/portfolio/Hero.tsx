@@ -10,18 +10,28 @@ const slideLabels = [
   "ABOUT ME",
 ];
 
-const techLogos = [
-  { src: "public/angular.jpg", label: "Angular" },
-  { src: "public/rxjs.jpg", label: "RxJS" },
-  { src: "public/ts.jpg", label: "TypeScript" },
-  // { src: "/logos/javascript.png", label: "JavaScript" },
-  { src: "public/html.jpg", label: "HTML5" },
-  { src: "public/csss.jpg", label: "CSS3" },
-  { src: "public/nodejs.jpg", label: "Node.js" },
-  { src: "public/restapi.jpg", label: "REST API" },
-  { src: "public/json.jpg", label: "JSON" },
-  { src: "public/mongodb.jpg", label: "MongoDB" },
-  { src: "public/karma-jasmine.jpg", label: "Karma & Jasmine" },
+type TechLogo = { src?: string; label: string; textPill?: { text: string; color: string; bg: string; border: string } };
+
+const techLogos: TechLogo[] = [
+  { src: "/angular.jpg", label: "Angular" },
+  { src: "/rxjs.jpg", label: "RxJS" },
+  { src: "/ts.jpg", label: "TypeScript" },
+  {
+    label: "JavaScript",
+    textPill: {
+      text: "JS",
+      color: "#f7df1e",
+      bg: "rgba(247,223,30,0.10)",
+      border: "rgba(247,223,30,0.25)",
+    },
+  },
+  { src: "/html.jpg", label: "HTML5" },
+  { src: "/css.jpg", label: "CSS3" },
+  { src: "/nodejs.jpg", label: "Node.js" },
+  { src: "/restapi.jpg", label: "REST API" },
+  { src: "/json.jpg", label: "JSON" },
+  { src: "/mongodb.jpg", label: "MongoDB" },
+  { src: "/karma-jasmine.jpg", label: "Karma & Jasmine" },
 ];
 
 const SLIDE_COUNT = 3;
@@ -79,7 +89,7 @@ const Hero = () => {
           style={{
             position: "absolute",
             inset: 0,
-            backgroundImage: "url(public/ctsoffice.jpg)",
+            backgroundImage: "url(/ctsoffice.jpg), linear-gradient(135deg, #003d2e 0%, #1C1C1E 100%)",
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundColor: "#003d2e",
@@ -105,7 +115,7 @@ const Hero = () => {
           }}
         >
           <img
-            src="public/ctslogo.jpg"
+            src="/ctslogo.jpg"
             alt="Cognizant"
             style={{ height: 28, width: "auto", objectFit: "contain", opacity: 0.9 }}
             onError={(e) => {
@@ -164,7 +174,7 @@ const Hero = () => {
           </h3>
           <div className="tech-grid" style={{ width: "100%", maxWidth: 760, margin: "0 auto" }}>
             {techLogos.map((t) => (
-              <TechItem key={t.label} src={t.src} label={t.label} />
+              <TechItem key={t.label} src={t.src} label={t.label} textPill={t.textPill} />
             ))}
             <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
               <span
@@ -231,13 +241,15 @@ const Hero = () => {
             }}
           >
             <img
-              src="public/dp.png"
+              src="/photoANUSHNA.jpg"
               alt="Anushna Patra"
               style={{
                 width: "100%",
                 height: "100%",
                 objectFit: "cover",
                 objectPosition: "center top",
+                transform: "scale(1.3)",
+                borderRadius: "50%",
               }}
               onError={(e) => {
                 const el = e.currentTarget;
@@ -331,11 +343,53 @@ const arrowStyle = (side: "left" | "right"): React.CSSProperties => ({
   [side]: 20,
 });
 
-const TechItem = ({ src, label }: { src: string; label: string }) => {
+const TechItem = ({
+  src,
+  label,
+  textPill,
+}: {
+  src?: string;
+  label: string;
+  textPill?: { text: string; color: string; bg: string; border: string };
+}) => {
   const [errored, setErrored] = useState(false);
-  if (errored) {
+
+  if (textPill) {
     return (
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6 }}>
+        <div
+          style={{
+            width: 52,
+            height: 52,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <span
+            style={{
+              background: textPill.bg,
+              border: `0.5px solid ${textPill.border}`,
+              color: textPill.color,
+              borderRadius: 999,
+              padding: "6px 16px",
+              fontSize: 13,
+              fontWeight: 700,
+            }}
+          >
+            {textPill.text}
+          </span>
+        </div>
+        <span style={{ fontSize: 10, color: "rgba(255,255,255,0.60)", textAlign: "center" }}>
+          {label}
+        </span>
+      </div>
+    );
+  }
+
+  if (errored || !src) {
+    return (
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6 }}>
         <span
           style={{
             color: "#3ECFA4",
@@ -358,7 +412,12 @@ const TechItem = ({ src, label }: { src: string; label: string }) => {
         src={src}
         alt={label}
         onError={() => setErrored(true)}
-        style={{ width: 52, height: 52, objectFit: "contain" }}
+        style={{
+          width: 52,
+          height: 52,
+          objectFit: "contain",
+          filter: "drop-shadow(0 2px 8px rgba(0,0,0,0.4))",
+        }}
       />
       <span style={{ fontSize: 10, color: "rgba(255,255,255,0.60)", textAlign: "center" }}>
         {label}
