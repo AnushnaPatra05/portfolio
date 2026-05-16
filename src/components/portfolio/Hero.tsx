@@ -17,14 +17,14 @@ const techLogos: TechLogo[] = [
   { src: "/rxjs.jpg", label: "RxJS" },
   { src: "/ts.jpg", label: "JS & TS" },
   { src: "/css.jpg", label: "SCSS & CSS" },
-  { src: "/CSS-Logo-2011.png", label: "CSS3" },
+  // { src: "/CSS-Logo-2011.png", label: "CSS3" },
   { src: "/html.jpg", label: "HTML5" },
   { src: "/nodejs.jpg", label: "Node.js" },
   { src: "/restapi.jpg", label: "REST API" },
   { src: "/json.jpg", label: "JSON" },
   { src: "/mongodb.jpg", label: "MongoDB" },
   { src: "/karma-jasmine.jpg", label: "Karma & Jasmine" },
-  { src: "/ngrx-logo.jpg", label: "NgRx" },
+  // { src: "/ngrx-logo.jpg", label: "NgRx" },
 ];
 
 const techExtras: TechLogo[] = [
