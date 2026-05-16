@@ -15,23 +15,22 @@ type TechLogo = { src?: string; label: string; textPill?: { text: string; color:
 const techLogos: TechLogo[] = [
   { src: "/angular.jpg", label: "Angular" },
   { src: "/rxjs.jpg", label: "RxJS" },
-  { src: "/ts.jpg", label: "TypeScript" },
-  {
-    label: "JavaScript",
-    textPill: {
-      text: "JS",
-      color: "#f7df1e",
-      bg: "rgba(247,223,30,0.10)",
-      border: "rgba(247,223,30,0.25)",
-    },
-  },
+  { src: "/ts.jpg", label: "JS & TS" },
+  { src: "/css.jpg", label: "SCSS & CSS" },
+  { src: "/CSS-Logo-2011.png", label: "CSS3" },
   { src: "/html.jpg", label: "HTML5" },
-  { src: "/css.jpg", label: "CSS3" },
   { src: "/nodejs.jpg", label: "Node.js" },
   { src: "/restapi.jpg", label: "REST API" },
   { src: "/json.jpg", label: "JSON" },
   { src: "/mongodb.jpg", label: "MongoDB" },
   { src: "/karma-jasmine.jpg", label: "Karma & Jasmine" },
+  { src: "/ngrx-logo.jpg", label: "NgRx" },
+];
+
+const techExtras: TechLogo[] = [
+  { src: "/bootstrap.jpg", label: "Bootstrap" },
+  { src: "/github.png", label: "GitHub" },
+  { src: "/ci-cd.png", label: "CI/CD" },
 ];
 
 const SLIDE_COUNT = 3;
@@ -172,24 +171,23 @@ const Hero = () => {
           <h3 style={{ color: "#fff", fontSize: 20, fontWeight: 700, textAlign: "center", margin: 0 }}>
             My Tech Stack
           </h3>
-          <div className="tech-grid" style={{ width: "100%", maxWidth: 760, margin: "0 auto" }}>
+          <div className="tech-grid" style={{ width: "100%", maxWidth: 800, margin: "0 auto" }}>
             {techLogos.map((t) => (
               <TechItem key={t.label} src={t.src} label={t.label} textPill={t.textPill} />
             ))}
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <span
-                style={{
-                  color: "#3ECFA4",
-                  fontSize: 11,
-                  background: "rgba(62,207,164,0.08)",
-                  border: "0.5px solid rgba(62,207,164,0.2)",
-                  borderRadius: 999,
-                  padding: "6px 16px",
-                }}
-              >
-                NgRx · Bootstrap · Git · CI/CD
-              </span>
-            </div>
+          </div>
+          <div
+            style={{
+              display: "inline-flex",
+              gap: 24,
+              justifyContent: "center",
+              alignItems: "flex-start",
+              marginTop: 4,
+            }}
+          >
+            {techExtras.map((t) => (
+              <TechItem key={t.label} src={t.src} label={t.label} />
+            ))}
           </div>
         </div>
         <SlideOverlay
@@ -226,8 +224,8 @@ const Hero = () => {
           <div
             className="profile-photo-wrap"
             style={{
-              width: 220,
-              height: 220,
+              width: 240,
+              height: 240,
               borderRadius: "50%",
               overflow: "hidden",
               border: "2px solid rgba(62,207,164,0.50)",
@@ -247,8 +245,8 @@ const Hero = () => {
                 width: "100%",
                 height: "100%",
                 objectFit: "cover",
-                objectPosition: "center top",
-                transform: "scale(1.3)",
+                objectPosition: "center 15%",
+                transform: "scale(1.15)",
                 borderRadius: "50%",
               }}
               onError={(e) => {
