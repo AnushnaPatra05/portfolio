@@ -343,11 +343,53 @@ const arrowStyle = (side: "left" | "right"): React.CSSProperties => ({
   [side]: 20,
 });
 
-const TechItem = ({ src, label }: { src: string; label: string }) => {
+const TechItem = ({
+  src,
+  label,
+  textPill,
+}: {
+  src?: string;
+  label: string;
+  textPill?: { text: string; color: string; bg: string; border: string };
+}) => {
   const [errored, setErrored] = useState(false);
-  if (errored) {
+
+  if (textPill) {
     return (
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6 }}>
+        <div
+          style={{
+            width: 52,
+            height: 52,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <span
+            style={{
+              background: textPill.bg,
+              border: `0.5px solid ${textPill.border}`,
+              color: textPill.color,
+              borderRadius: 999,
+              padding: "6px 16px",
+              fontSize: 13,
+              fontWeight: 700,
+            }}
+          >
+            {textPill.text}
+          </span>
+        </div>
+        <span style={{ fontSize: 10, color: "rgba(255,255,255,0.60)", textAlign: "center" }}>
+          {label}
+        </span>
+      </div>
+    );
+  }
+
+  if (errored || !src) {
+    return (
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6 }}>
         <span
           style={{
             color: "#3ECFA4",
@@ -370,7 +412,12 @@ const TechItem = ({ src, label }: { src: string; label: string }) => {
         src={src}
         alt={label}
         onError={() => setErrored(true)}
-        style={{ width: 52, height: 52, objectFit: "contain" }}
+        style={{
+          width: 52,
+          height: 52,
+          objectFit: "contain",
+          filter: "drop-shadow(0 2px 8px rgba(0,0,0,0.4))",
+        }}
       />
       <span style={{ fontSize: 10, color: "rgba(255,255,255,0.60)", textAlign: "center" }}>
         {label}
