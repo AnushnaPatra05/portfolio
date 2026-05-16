@@ -25,6 +25,11 @@ const techLogos: TechLogo[] = [
   { src: "/mongodb.jpg", label: "MongoDB" },
   { src: "/karma-jasmine.jpg", label: "Karma & Jasmine" },
   { src: "/ngrx-logo.jpg", label: "NgRx" },
+];
+
+const techExtras: TechLogo[] = [
+  { src: "/bootstrap.jpg", label: "Bootstrap" },
+  { src: "/ngrx-logo.jpg", label: "NgRx" },
   { src: "/github.png", label: "GitHub" },
   { src: "/ci-cd.png", label: "CI/CD" },
 ];
