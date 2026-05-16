@@ -1,23 +1,34 @@
 import { useEffect, useState } from "react";
-import { ChevronDown, ChevronLeft, ChevronRight, Camera } from "lucide-react";
+import {
+  ChevronDown,
+  ChevronLeft,
+  ChevronRight,
+  Camera,
+} from "lucide-react";
 import { CV_DOWNLOAD_URL } from "@/config/cv";
 
-const roles = ["UI Developer", "Frontend Engineer", "Angular Specialist"];
-
-const slideLabels = [
-  "FRONTEND DEVELOPER · COGNIZANT",
-  "MY TECH STACK",
-  "ABOUT ME",
+const roles = [
+  "Frontend Engineer",
+  "Programmer Analyst",
+  "Angular Specialist",
 ];
 
-type TechLogo = { src?: string; label: string; textPill?: { text: string; color: string; bg: string; border: string } };
+const slideLabels = [
+  "ABOUT ME",
+  "COGNIZANT TECHNOLOGY SOLUTIONS",
+  "MY TECH STACK",
+];
+
+type TechLogo = {
+  src?: string;
+  label: string;
+};
 
 const techLogos: TechLogo[] = [
   { src: "/angular.jpg", label: "Angular" },
   { src: "/rxjs.jpg", label: "RxJS" },
-  { src: "/ts.jpg", label: "JS & TS" },
-  { src: "/css.jpg", label: "SCSS & CSS" },
-  // { src: "/CSS-Logo-2011.png", label: "CSS3" },
+  { src: "/ts.jpg", label: "JavaScript & TypeScript" },
+  { src: "/css.jpg", label: "SCSS & CSS3" },
   { src: "/html.jpg", label: "HTML5" },
   { src: "/nodejs.jpg", label: "Node.js" },
   { src: "/restapi.jpg", label: "REST API" },
@@ -25,11 +36,7 @@ const techLogos: TechLogo[] = [
   { src: "/mongodb.jpg", label: "MongoDB" },
   { src: "/karma-jasmine.jpg", label: "Karma & Jasmine" },
   { src: "/ngrx-logo.jpg", label: "NgRx" },
-];
-
-const techExtras: TechLogo[] = [
   { src: "/bootstrap.jpg", label: "Bootstrap" },
-  { src: "/ngrx-logo.jpg", label: "NgRx" },
   { src: "/github.png", label: "GitHub" },
   { src: "/ci-cd.png", label: "CI/CD" },
 ];
@@ -40,88 +47,95 @@ const Hero = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
-    const t = setInterval(() => setActiveIndex((i) => (i + 1) % SLIDE_COUNT), 4000);
-    return () => clearInterval(t);
+    const timer = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % SLIDE_COUNT);
+    }, 4500);
+
+    return () => clearInterval(timer);
   }, []);
 
-  const goPrev = () => setActiveIndex((i) => (i - 1 + SLIDE_COUNT) % SLIDE_COUNT);
-  const goNext = () => setActiveIndex((i) => (i + 1) % SLIDE_COUNT);
+  const goPrev = () => {
+    setActiveIndex((prev) => (prev - 1 + SLIDE_COUNT) % SLIDE_COUNT);
+  };
+
+  const goNext = () => {
+    setActiveIndex((prev) => (prev + 1) % SLIDE_COUNT);
+  };
 
   const scrollToProjects = () => {
-    document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" });
+    document
+      .querySelector("#projects")
+      ?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <section
       id="hero"
-      className="hero-section relative bg-background overflow-hidden"
-      style={{ height: "100vh", width: "100%" }}
+      style={{
+        position: "relative",
+        height: "100vh",
+        width: "100%",
+        overflow: "hidden",
+        background: "#0B1020",
+      }}
     >
-      {/* Aurora */}
-      <div className="aurora-bg">
-        <div className="aurora-band a1" />
-        <div className="aurora-band a2" />
-        <div className="aurora-band a3" />
-        <div className="aurora-band a4" />
-      </div>
-
-      {/* Carousel arrows */}
+      {/* LEFT ARROW */}
       <button
         onClick={goPrev}
-        aria-label="Previous slide"
-        className="hero-arrow"
+        aria-label="Previous Slide"
         style={arrowStyle("left")}
       >
         <ChevronLeft className="w-5 h-5" />
       </button>
+
+      {/* RIGHT ARROW */}
       <button
         onClick={goNext}
-        aria-label="Next slide"
-        className="hero-arrow"
+        aria-label="Next Slide"
         style={arrowStyle("right")}
       >
         <ChevronRight className="w-5 h-5" />
       </button>
 
-           {/* SLIDE 0 — Profile */}
+      {/* ========================================================= */}
+      {/* SLIDE 0 — ABOUT */}
+      {/* ========================================================= */}
+
       <Slide active={activeIndex === 0}>
         <div
           style={{
             position: "absolute",
             inset: 0,
-            background: "linear-gradient(135deg, #1a0a2e 0%, #0d0d1a 50%, #1C1C1E 100%)",
+            background:
+              "linear-gradient(135deg, #0b1020 0%, #151932 50%, #1C1C1E 100%)",
           }}
         />
+
         <div
-          className="slide-profile-content"
+          className="profile-content"
           style={{
             position: "absolute",
-            top: 40,
-            left: 0,
-            right: 0,
-            bottom: 320,
+            inset: 0,
+            padding: "120px 80px 240px",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            gap: 48,
-            padding: "0 80px",
+            gap: 64,
+            zIndex: 2,
           }}
         >
+          {/* PROFILE IMAGE */}
           <div
-            className="profile-photo-wrap"
             style={{
-              width: 240,
-              height: 240,
+              width: 260,
+              height: 260,
               borderRadius: "50%",
               overflow: "hidden",
-              border: "2px solid rgba(62,207,164,0.50)",
-              boxShadow:
-                "0 0 60px rgba(62,207,164,0.25), 0 0 100px rgba(168,85,247,0.15)",
-              flex: "0 0 auto",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
+              flexShrink: 0,
+              border: "2px solid rgba(62,207,164,0.45)",
               background: "rgba(255,255,255,0.04)",
+              boxShadow:
+                "0 0 40px rgba(62,207,164,0.15), 0 0 80px rgba(168,85,247,0.15)",
             }}
           >
             <img
@@ -131,56 +145,96 @@ const Hero = () => {
                 width: "100%",
                 height: "100%",
                 objectFit: "cover",
-                objectPosition: "center 8%",
-                transform: "scale(1.0)",
-                display: "block",
+                objectPosition: "center top",
+                transform: "scale(1.08)",
               }}
               onError={(e) => {
-                const el = e.currentTarget;
-                el.style.display = "none";
-                const fallback = el.nextElementSibling as HTMLElement | null;
-                if (fallback) fallback.style.display = "flex";
+                e.currentTarget.style.display = "none";
               }}
             />
-            <div
-              style={{
-                display: "none",
-                flexDirection: "column",
-                alignItems: "center",
-                gap: 6,
-                color: "#A0A0A0",
-              }}
-            >
-              <Camera className="w-6 h-6" />
-              <span style={{ fontSize: 12 }}>Upload photo</span>
-            </div>
           </div>
 
-          <div style={{ display: "flex", flexDirection: "column", gap: 12, maxWidth: 320 }}>
-            <div style={{ color: "#3ECFA4", fontSize: 15, fontWeight: 500 }}>Programmer Analyst</div>
-            <div style={{ color: "#A0A0A0", fontSize: 13 }}>Cognizant Technology Solutions</div>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-              {["3+ Years", "Angular Expert", "B.Tech 2023", "Kolkata, India"].map((s) => (
+          {/* TEXT */}
+          <div
+            style={{
+              maxWidth: 480,
+              display: "flex",
+              flexDirection: "column",
+              gap: 18,
+            }}
+          >
+            <div
+              style={{
+                color: "#3ECFA4",
+                fontSize: 15,
+                fontWeight: 600,
+                letterSpacing: "0.12em",
+              }}
+            >
+              PROGRAMMER ANALYST
+            </div>
+
+            <h2
+              style={{
+                color: "#ffffff",
+                fontSize: 48,
+                lineHeight: 1.1,
+                margin: 0,
+                fontWeight: 800,
+              }}
+            >
+              Building modern,
+              <br />
+              scalable Angular apps.
+            </h2>
+
+            <p
+              style={{
+                color: "rgba(255,255,255,0.72)",
+                lineHeight: 1.8,
+                fontSize: 15,
+                margin: 0,
+              }}
+            >
+              Frontend Engineer with 3+ years of experience building
+              enterprise-grade Angular applications at Cognizant.
+              Passionate about performance, reactive architecture,
+              clean UI systems, and scalable frontend engineering.
+            </p>
+
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: 10,
+                marginTop: 8,
+              }}
+            >
+              {[
+                "3+ Years Experience",
+                "Angular Expert",
+                "RxJS & NgRx",
+                "Kolkata, India",
+              ].map((item) => (
                 <span
-                  key={s}
+                  key={item}
                   style={{
-                    background: "rgba(62,207,164,0.08)",
-                    border: "0.5px solid rgba(62,207,164,0.22)",
-                    color: "#3ECFA4",
+                    padding: "8px 14px",
                     borderRadius: 999,
-                    fontSize: 11,
-                    padding: "4px 12px",
+                    background: "rgba(62,207,164,0.08)",
+                    border: "1px solid rgba(62,207,164,0.18)",
+                    color: "#3ECFA4",
+                    fontSize: 12,
+                    fontWeight: 500,
                   }}
                 >
-                  {s}
+                  {item}
                 </span>
               ))}
             </div>
-            <p style={{ color: "#A0A0A0", fontSize: 13, lineHeight: 1.7, margin: 0 }}>
-              Building scalable, reactive Angular applications at Cognizant — passionate about clean code and smooth user experiences.
-            </p>
           </div>
         </div>
+
         <SlideOverlay
           activeIndex={activeIndex}
           setActiveIndex={setActiveIndex}
@@ -188,126 +242,118 @@ const Hero = () => {
         />
       </Slide>
 
-   {/* SLIDE 1 — Cognizant */}
+      {/* ========================================================= */}
+      {/* SLIDE 1 — COGNIZANT */}
+      {/* ========================================================= */}
+
       <Slide active={activeIndex === 1}>
         <div
           style={{
             position: "absolute",
             inset: 0,
-            backgroundImage: "url(/ctsoffice.jpg), linear-gradient(135deg, #003d2e 0%, #1C1C1E 100%)",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundColor: "#003d2e",
+            backgroundImage: "url(/ctsoffice.jpg)",
+            backgroundSize: "110%",
+            backgroundPosition: "center center",
+            backgroundRepeat: "no-repeat",
+            filter: "brightness(0.82)",
           }}
         />
+
         <div
           style={{
             position: "absolute",
             inset: 0,
             background:
-              "linear-gradient(to top, rgba(0,0,0,0.90) 0%, rgba(0,0,0,0.40) 50%, rgba(0,0,0,0.20) 100%)",
+              "linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.30) 45%, rgba(0,0,0,0.12) 100%)",
           }}
         />
+
         <div
-          className="slide-cog-logo"
           style={{
             position: "absolute",
-            top: 40,
+            top: 42,
             right: 60,
-            display: "flex",
-            alignItems: "center",
-            gap: 8,
+            zIndex: 3,
           }}
         >
           <img
             src="/ctslogo.jpg"
             alt="Cognizant"
-            style={{ height: 28, width: "auto", objectFit: "contain", opacity: 0.9 }}
-            onError={(e) => {
-              const el = e.currentTarget;
-              el.style.display = "none";
-              const next = el.nextElementSibling as HTMLElement | null;
-              if (next) next.style.display = "block";
+            style={{
+              height: 34,
+              objectFit: "contain",
+              opacity: 0.92,
             }}
           />
-          <span
-            style={{
-              display: "none",
-              color: "#fff",
-              fontSize: 13,
-              letterSpacing: "0.15em",
-              opacity: 0.7,
-            }}
-          >
-            COGNIZANT
-          </span>
         </div>
+
         <SlideOverlay
           activeIndex={activeIndex}
           setActiveIndex={setActiveIndex}
           scrollToProjects={scrollToProjects}
         />
       </Slide>
-      
-      {/* SLIDE 2 — Tech Stack */}
+
+      {/* ========================================================= */}
+      {/* SLIDE 2 — TECH STACK */}
+      {/* ========================================================= */}
+
       <Slide active={activeIndex === 2}>
         <div
           style={{
             position: "absolute",
             inset: 0,
-            background: "linear-gradient(135deg, #0d0d1a 0%, #1a1a2e 50%, #1C1C1E 100%)",
+            background:
+              "linear-gradient(135deg, #0b1020 0%, #141b34 50%, #1C1C1E 100%)",
           }}
         />
+
         <div
-          className="slide-tech-content"
           style={{
             position: "absolute",
-            top: 60,
-            left: 0,
-            right: 0,
-            bottom: 280,
+            inset: 0,
+            padding: "120px 60px 240px",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
-            padding: "0 60px",
-            gap: 28,
+            zIndex: 2,
           }}
         >
-          <h3 style={{ color: "#fff", fontSize: 20, fontWeight: 700, textAlign: "center", margin: 0 }}>
-            My Tech Stack
-          </h3>
-          <div
-            className="tech-grid"
+          <h3
             style={{
-              width: "100%",
-              maxWidth: 860,
-              margin: "0 auto",
-              display: "grid",
-              gridTemplateColumns: "repeat(7, 1fr)",
-              gap: 20,
+              color: "#ffffff",
+              fontSize: 30,
+              fontWeight: 700,
+              marginBottom: 50,
+              letterSpacing: "0.04em",
             }}
           >
-            {techLogos.map((t) => (
-              <TechItem key={t.label} src={t.src} label={t.label} textPill={t.textPill} />
+            My Tech Stack
+          </h3>
+
+          <div
+            style={{
+              width: "100%",
+              maxWidth: 980,
+              display: "grid",
+              gridTemplateColumns:
+                "repeat(auto-fit, minmax(120px, 1fr))",
+              gap: "38px 28px",
+              justifyItems: "center",
+              alignItems: "start",
+            }}
+          >
+            {techLogos.map((tech) => (
+              <TechItem
+                key={tech.label}
+                src={tech.src}
+                label={tech.label}
+              />
             ))}
           </div>
-          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6, marginTop: 16 }}>
-            <img
-              src="/bootstrap.jpg"
-              alt="Bootstrap"
-              style={{
-                width: 52,
-                height: 52,
-                objectFit: "contain",
-                filter: "drop-shadow(0 2px 8px rgba(0,0,0,0.35))",
-              }}
-            />
-            <span style={{ fontSize: 10, color: "rgba(255,255,255,0.60)", textAlign: "center" }}>
-              Bootstrap
-            </span>
-          </div>
         </div>
+
         <SlideOverlay
           activeIndex={activeIndex}
           setActiveIndex={setActiveIndex}
@@ -315,124 +361,113 @@ const Hero = () => {
         />
       </Slide>
 
-    
+      {/* DOWN ICON */}
 
-      {/* Scroll chevron */}
       <a
         href="#skills"
-        aria-label="Scroll down"
-        className="text-mint animate-bounce-down"
         style={{
           position: "absolute",
-          bottom: 16,
+          bottom: 20,
           left: "50%",
           transform: "translateX(-50%)",
-          zIndex: 30,
-          pointerEvents: "none",
+          zIndex: 20,
+          color: "#3ECFA4",
+          animation: "bounce 2s infinite",
         }}
       >
         <ChevronDown className="w-6 h-6" />
       </a>
+
+      {/* RESPONSIVE CSS */}
+      <style>
+        {`
+          @media (max-width: 900px) {
+            .profile-content {
+              flex-direction: column !important;
+              text-align: center;
+              padding: 100px 24px 240px !important;
+              gap: 32px !important;
+            }
+          }
+
+          @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+              transform: translate(-50%, 0);
+            }
+
+            40% {
+              transform: translate(-50%, -10px);
+            }
+
+            60% {
+              transform: translate(-50%, -5px);
+            }
+          }
+        `}
+      </style>
     </section>
   );
 };
 
-const arrowStyle = (side: "left" | "right"): React.CSSProperties => ({
-  position: "absolute",
-  top: "50%",
-  transform: "translateY(-50%)",
-  zIndex: 20,
-  width: 40,
-  height: 40,
-  borderRadius: "50%",
-  background: "rgba(255,255,255,0.08)",
-  border: "0.5px solid rgba(255,255,255,0.15)",
-  color: "#fff",
-  fontSize: 20,
-  cursor: "pointer",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  [side]: 20,
-});
-
 const TechItem = ({
   src,
   label,
-  textPill,
 }: {
   src?: string;
   label: string;
-  textPill?: { text: string; color: string; bg: string; border: string };
 }) => {
   const [errored, setErrored] = useState(false);
 
-  if (textPill) {
-    return (
-      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6 }}>
-        <div
-          style={{
-            width: 52,
-            height: 52,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <span
-            style={{
-              background: textPill.bg,
-              border: `0.5px solid ${textPill.border}`,
-              color: textPill.color,
-              borderRadius: 999,
-              padding: "6px 16px",
-              fontSize: 13,
-              fontWeight: 700,
-            }}
-          >
-            {textPill.text}
-          </span>
-        </div>
-        <span style={{ fontSize: 10, color: "rgba(255,255,255,0.60)", textAlign: "center" }}>
-          {label}
-        </span>
-      </div>
-    );
-  }
-
-  if (errored || !src) {
-    return (
-      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6 }}>
-        <span
-          style={{
-            color: "#3ECFA4",
-            fontSize: 10,
-            background: "rgba(62,207,164,0.08)",
-            border: "0.5px solid rgba(62,207,164,0.2)",
-            borderRadius: 999,
-            padding: "6px 12px",
-            textAlign: "center",
-          }}
-        >
-          {label}
-        </span>
-      </div>
-    );
-  }
   return (
-    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6 }}>
-      <img
-        src={src}
-        alt={label}
-        onError={() => setErrored(true)}
+    <div
+      style={{
+        width: 110,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: 14,
+      }}
+    >
+      <div
         style={{
-          width: 52,
-          height: 52,
-          objectFit: "contain",
-          filter: "drop-shadow(0 2px 8px rgba(0,0,0,0.4))",
+          width: 76,
+          height: 76,
+          borderRadius: 20,
+          background: "rgba(255,255,255,0.04)",
+          border: "1px solid rgba(255,255,255,0.08)",
+          backdropFilter: "blur(10px)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          boxShadow: "0 6px 24px rgba(0,0,0,0.25)",
+          transition: "all 0.25s ease",
         }}
-      />
-      <span style={{ fontSize: 10, color: "rgba(255,255,255,0.60)", textAlign: "center" }}>
+      >
+        {!errored && src ? (
+          <img
+            src={src}
+            alt={label}
+            onError={() => setErrored(true)}
+            style={{
+              width: 44,
+              height: 44,
+              objectFit: "contain",
+            }}
+          />
+        ) : (
+          <Camera className="w-5 h-5 text-[#3ECFA4]" />
+        )}
+      </div>
+
+      <span
+        style={{
+          color: "rgba(255,255,255,0.75)",
+          fontSize: 12,
+          fontWeight: 500,
+          textAlign: "center",
+          lineHeight: 1.5,
+        }}
+      >
         {label}
       </span>
     </div>
@@ -456,70 +491,71 @@ const SlideOverlay = ({
         left: 0,
         right: 0,
         zIndex: 10,
-        background:
-          "linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.60) 60%, transparent 100%)",
-        padding: "40px 0 60px 0",
+        padding: "40px 0 60px",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        gap: 12,
-        textAlign: "center",
+        gap: 14,
+        background:
+          "linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.55) 60%, transparent 100%)",
       }}
     >
       <div
         style={{
-          fontSize: 11,
-          fontWeight: 500,
-          letterSpacing: "0.14em",
           color: "#3ECFA4",
-          textTransform: "uppercase",
+          fontSize: 11,
+          letterSpacing: "0.16em",
+          fontWeight: 600,
         }}
       >
         {slideLabels[activeIndex]}
       </div>
 
       <h1
-        className="hero-name gradient-text"
         style={{
-          fontSize: 52,
-          fontWeight: 800,
-          lineHeight: 1.05,
           margin: 0,
+          fontSize: 58,
+          fontWeight: 800,
+          lineHeight: 1,
           textAlign: "center",
+          background: "linear-gradient(90deg, #3ECFA4, #a855f7)",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
         }}
       >
         Anushna Patra
       </h1>
 
       <div
-        className="hero-role"
-        style={{ height: 40, overflow: "hidden", position: "relative", width: "100%" }}
+        style={{
+          position: "relative",
+          height: 36,
+          width: "100%",
+          overflow: "hidden",
+        }}
       >
-        {roles.map((r, i) => {
-          const isActive = i === activeIndex;
+        {roles.map((role, index) => {
+          const active = index === activeIndex;
+
           return (
             <span
-              key={r}
+              key={role}
               style={{
                 position: "absolute",
-                left: 0,
-                right: 0,
-                margin: "0 auto",
-                width: "100%",
+                inset: 0,
                 textAlign: "center",
                 fontSize: 22,
-                fontWeight: 400,
                 color: "#3ECFA4",
-                opacity: isActive ? 1 : 0,
-                transform: isActive
+                opacity: active ? 1 : 0,
+                transform: active
                   ? "translateY(0)"
-                  : i < activeIndex
+                  : index < activeIndex
                   ? "translateY(-100%)"
                   : "translateY(100%)",
-                transition: "opacity 280ms ease, transform 280ms ease",
+                transition: "all 300ms ease",
               }}
             >
-              {r}
+              {role}
             </span>
           );
         })}
@@ -527,78 +563,84 @@ const SlideOverlay = ({
 
       <div
         style={{
-          width: 48,
-          height: 2,
-          background: "linear-gradient(90deg, #3ECFA4, #a855f7)",
-          borderRadius: 1,
-          margin: "0 auto",
+          width: 52,
+          height: 3,
+          borderRadius: 999,
+          background:
+            "linear-gradient(90deg, #3ECFA4 0%, #a855f7 100%)",
         }}
       />
 
+      {/* BUTTONS */}
+
       <div
-        className="hero-btn-row"
-        style={{ display: "flex", flexDirection: "row", gap: 14, justifyContent: "center" }}
+        style={{
+          display: "flex",
+          gap: 14,
+          flexWrap: "wrap",
+          justifyContent: "center",
+        }}
       >
         <button
           onClick={scrollToProjects}
           style={{
-            background: "transparent",
             border: "1.5px solid #3ECFA4",
+            background: "transparent",
             color: "#3ECFA4",
             borderRadius: 999,
-            padding: "11px 28px",
+            padding: "12px 30px",
             fontSize: 14,
-            fontWeight: 500,
+            fontWeight: 600,
             cursor: "pointer",
-            transition: "all 200ms ease",
           }}
-          onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(62,207,164,0.12)")}
-          onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
         >
           View My Work →
         </button>
+
         <a
           href={CV_DOWNLOAD_URL}
           target="_blank"
           rel="noopener noreferrer"
           style={{
-            background: "rgba(255,255,255,0.10)",
-            border: "1px solid rgba(255,255,255,0.20)",
+            border: "1px solid rgba(255,255,255,0.16)",
+            background: "rgba(255,255,255,0.08)",
             color: "#ffffff",
             borderRadius: 999,
-            padding: "11px 28px",
+            padding: "12px 30px",
             fontSize: 14,
             textDecoration: "none",
-            display: "inline-flex",
-            alignItems: "center",
-            gap: 6,
-            transition: "all 200ms ease",
+            fontWeight: 500,
           }}
-          onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.18)")}
-          onMouseLeave={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.10)")}
         >
           Download CV ↓
         </a>
       </div>
 
-      <div style={{ display: "flex", justifyContent: "center", gap: 8, marginTop: 4 }}>
-        {[0, 1, 2].map((i) => {
-          const isActive = i === activeIndex;
+      {/* INDICATORS */}
+
+      <div
+        style={{
+          display: "flex",
+          gap: 8,
+          marginTop: 6,
+        }}
+      >
+        {[0, 1, 2].map((index) => {
+          const active = index === activeIndex;
+
           return (
             <button
-              key={i}
-              aria-label={`Go to slide ${i + 1}`}
-              onClick={() => setActiveIndex(i)}
+              key={index}
+              onClick={() => setActiveIndex(index)}
               style={{
-                width: isActive ? 28 : 6,
-                height: 6,
-                borderRadius: isActive ? 3 : "50%",
-                background: isActive
+                width: active ? 28 : 8,
+                height: 8,
+                borderRadius: 999,
+                border: "none",
+                background: active
                   ? "linear-gradient(90deg, #3ECFA4, #a855f7)"
                   : "rgba(255,255,255,0.30)",
-                border: "none",
                 cursor: "pointer",
-                padding: 0,
                 transition: "all 300ms ease",
               }}
             />
@@ -609,20 +651,47 @@ const SlideOverlay = ({
   );
 };
 
-const Slide = ({ active, children }: { active: boolean; children: React.ReactNode }) => (
-  <div
-    style={{
-      position: "absolute",
-      inset: 0,
-      width: "100%",
-      height: "100%",
-      opacity: active ? 1 : 0,
-      transition: "opacity 500ms ease",
-      pointerEvents: active ? "auto" : "none",
-    }}
-  >
-    {children}
-  </div>
-);
+const Slide = ({
+  active,
+  children,
+}: {
+  active: boolean;
+  children: React.ReactNode;
+}) => {
+  return (
+    <div
+      style={{
+        position: "absolute",
+        inset: 0,
+        opacity: active ? 1 : 0,
+        transition: "opacity 500ms ease",
+        pointerEvents: active ? "auto" : "none",
+      }}
+    >
+      {children}
+    </div>
+  );
+};
+
+const arrowStyle = (
+  side: "left" | "right"
+): React.CSSProperties => ({
+  position: "absolute",
+  top: "50%",
+  transform: "translateY(-50%)",
+  zIndex: 20,
+  width: 44,
+  height: 44,
+  borderRadius: "50%",
+  border: "1px solid rgba(255,255,255,0.10)",
+  background: "rgba(255,255,255,0.06)",
+  color: "#ffffff",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  cursor: "pointer",
+  backdropFilter: "blur(8px)",
+  [side]: 24,
+});
 
 export default Hero;
