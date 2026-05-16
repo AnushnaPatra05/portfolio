@@ -102,7 +102,7 @@ const Hero = () => {
       </button>
 
       {/* ====================================== */}
-      {/* SLIDE 0 */}
+      {/* SLIDE 0 — ABOUT */}
       {/* ====================================== */}
 
       <Slide active={activeIndex === 0}>
@@ -158,7 +158,7 @@ const Hero = () => {
       </Slide>
 
       {/* ====================================== */}
-      {/* SLIDE 1 */}
+      {/* SLIDE 1 — COGNIZANT */}
       {/* ====================================== */}
 
       <Slide active={activeIndex === 1}>
@@ -182,7 +182,7 @@ const Hero = () => {
       </Slide>
 
       {/* ====================================== */}
-      {/* SLIDE 2 */}
+      {/* SLIDE 2 — TECH STACK */}
       {/* ====================================== */}
 
       <Slide active={activeIndex === 2}>
@@ -568,12 +568,19 @@ const Hero = () => {
               height: 28px;
             }
 
-            /* MOBILE FIX FOR COGNIZANT */
+            /* ====================================== */
+            /* MOBILE COGNIZANT FIX */
+            /* ====================================== */
 
             .cognizant-image {
-              background-size: cover;
 
-              background-position: center top;
+              background-size: contain;
+
+              background-position: center center;
+
+              background-repeat: no-repeat;
+
+              background-color: #0B1020;
 
               transform: scale(1);
             }
