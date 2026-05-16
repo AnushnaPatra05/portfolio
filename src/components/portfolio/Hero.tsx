@@ -171,24 +171,23 @@ const Hero = () => {
           <h3 style={{ color: "#fff", fontSize: 20, fontWeight: 700, textAlign: "center", margin: 0 }}>
             My Tech Stack
           </h3>
-          <div className="tech-grid" style={{ width: "100%", maxWidth: 760, margin: "0 auto" }}>
+          <div className="tech-grid" style={{ width: "100%", maxWidth: 800, margin: "0 auto" }}>
             {techLogos.map((t) => (
               <TechItem key={t.label} src={t.src} label={t.label} textPill={t.textPill} />
             ))}
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <span
-                style={{
-                  color: "#3ECFA4",
-                  fontSize: 11,
-                  background: "rgba(62,207,164,0.08)",
-                  border: "0.5px solid rgba(62,207,164,0.2)",
-                  borderRadius: 999,
-                  padding: "6px 16px",
-                }}
-              >
-                NgRx · Bootstrap · Git · CI/CD
-              </span>
-            </div>
+          </div>
+          <div
+            style={{
+              display: "inline-flex",
+              gap: 24,
+              justifyContent: "center",
+              alignItems: "flex-start",
+              marginTop: 4,
+            }}
+          >
+            {techExtras.map((t) => (
+              <TechItem key={t.label} src={t.src} label={t.label} />
+            ))}
           </div>
         </div>
         <SlideOverlay
