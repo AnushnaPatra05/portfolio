@@ -81,9 +81,7 @@ const Hero = () => {
         background: "#0B1020",
       }}
     >
-      {/* ====================================== */}
       {/* ARROWS */}
-      {/* ====================================== */}
 
       <button
         onClick={goPrev}
@@ -102,7 +100,7 @@ const Hero = () => {
       </button>
 
       {/* ====================================== */}
-      {/* SLIDE 0 — ABOUT */}
+      {/* SLIDE 0 */}
       {/* ====================================== */}
 
       <Slide active={activeIndex === 0}>
@@ -158,7 +156,7 @@ const Hero = () => {
       </Slide>
 
       {/* ====================================== */}
-      {/* SLIDE 1 — COGNIZANT */}
+      {/* SLIDE 1 */}
       {/* ====================================== */}
 
       <Slide active={activeIndex === 1}>
@@ -174,7 +172,7 @@ const Hero = () => {
       </Slide>
 
       {/* ====================================== */}
-      {/* SLIDE 2 — TECH STACK */}
+      {/* SLIDE 2 */}
       {/* ====================================== */}
 
       <Slide active={activeIndex === 2}>
@@ -201,17 +199,13 @@ const Hero = () => {
         />
       </Slide>
 
-      {/* ====================================== */}
-      {/* SCROLL DOWN */}
-      {/* ====================================== */}
+      {/* SCROLL */}
 
       <a href="#skills" className="scroll-down">
         <ChevronDown className="w-6 h-6" />
       </a>
 
-      {/* ====================================== */}
       {/* STYLES */}
-      {/* ====================================== */}
 
       <style>
         {`
@@ -228,9 +222,7 @@ const Hero = () => {
               );
           }
 
-          /* ====================================== */
           /* ABOUT */
-          /* ====================================== */
 
           .hero-about-container {
             position: absolute;
@@ -335,9 +327,7 @@ const Hero = () => {
             font-size: 12px;
           }
 
-          /* ====================================== */
           /* COGNIZANT */
-          /* ====================================== */
 
           .cognizant-image {
             position: absolute;
@@ -353,11 +343,7 @@ const Hero = () => {
 
             background-color: #0B1020;
 
-            image-rendering: auto;
-
             transform: scale(1.005);
-
-            will-change: transform;
           }
 
           .cognizant-overlay {
@@ -370,18 +356,10 @@ const Hero = () => {
                 rgba(3, 7, 18, 0.92) 0%,
                 rgba(3, 7, 18, 0.55) 38%,
                 rgba(3, 7, 18, 0.22) 100%
-              ),
-
-              linear-gradient(
-                to right,
-                rgba(11,16,32,0.40),
-                rgba(11,16,32,0.12)
               );
           }
 
-          /* ====================================== */
           /* TECH STACK */
-          /* ====================================== */
 
           .tech-background {
             position: absolute;
@@ -449,9 +427,7 @@ const Hero = () => {
             justify-items: center;
           }
 
-          /* ====================================== */
           /* SCROLL */
-          /* ====================================== */
 
           .scroll-down {
             position: absolute;
@@ -466,9 +442,7 @@ const Hero = () => {
             color: #3ECFA4;
           }
 
-          /* ====================================== */
           /* TABLET */
-          /* ====================================== */
 
           @media (max-width: 1024px) {
 
@@ -490,9 +464,7 @@ const Hero = () => {
             }
           }
 
-          /* ====================================== */
           /* MOBILE */
-          /* ====================================== */
 
           @media (max-width: 768px) {
 
@@ -537,7 +509,6 @@ const Hero = () => {
             }
 
             .cognizant-image {
-
               background-size: contain;
 
               background-position: center center;
@@ -665,17 +636,19 @@ const SlideOverlay = ({
         right: 0,
         bottom: 0,
 
+        transform: "translateY(-10px)",
+
         zIndex: 10,
 
         padding: showHeroText
-          ? "20px 20px 40px"
-          : "18px 20px 34px",
+          ? "14px 20px 26px"
+          : "14px 20px 22px",
 
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
 
-        gap: showHeroText ? 12 : 10,
+        gap: showHeroText ? 10 : 8,
 
         textAlign: "center",
 
@@ -688,7 +661,7 @@ const SlideOverlay = ({
       <div
         style={{
           color: "#3ECFA4",
-          fontSize: 11,
+          fontSize: 10,
           fontWeight: 600,
           letterSpacing: "0.16em",
         }}
@@ -702,7 +675,7 @@ const SlideOverlay = ({
             style={{
               margin: 0,
 
-              fontSize: "clamp(34px, 6vw, 62px)",
+              fontSize: "clamp(28px, 5vw, 54px)",
 
               fontWeight: 800,
 
@@ -722,9 +695,9 @@ const SlideOverlay = ({
             style={{
               color: "#3ECFA4",
 
-              fontSize: "clamp(16px, 2vw, 24px)",
+              fontSize: "clamp(14px, 2vw, 20px)",
 
-              minHeight: 28,
+              minHeight: 22,
             }}
           >
             {roles[activeIndex]}
@@ -738,8 +711,9 @@ const SlideOverlay = ({
           flexWrap: "wrap",
           justifyContent: "center",
 
-          gap: 14,
-          marginTop: 4,
+          gap: 12,
+
+          marginTop: 2,
         }}
       >
         <button
@@ -751,9 +725,9 @@ const SlideOverlay = ({
 
             borderRadius: 999,
 
-            padding: "12px 28px",
+            padding: "10px 22px",
 
-            fontSize: 14,
+            fontSize: 13,
             fontWeight: 600,
 
             cursor: "pointer",
@@ -773,9 +747,10 @@ const SlideOverlay = ({
 
             borderRadius: 999,
 
-            padding: "12px 28px",
+            padding: "10px 22px",
 
-            fontSize: 14,
+            fontSize: 13,
+
             textDecoration: "none",
             fontWeight: 500,
           }}
@@ -788,7 +763,8 @@ const SlideOverlay = ({
         style={{
           display: "flex",
           gap: 8,
-          marginTop: 4,
+
+          marginTop: 2,
         }}
       >
         {[0, 1, 2].map((index) => {
@@ -799,8 +775,8 @@ const SlideOverlay = ({
               key={index}
               onClick={() => setActiveIndex(index)}
               style={{
-                width: active ? 28 : 8,
-                height: 8,
+                width: active ? 24 : 7,
+                height: 7,
 
                 borderRadius: 999,
 
