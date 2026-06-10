@@ -1,47 +1,19 @@
-const groups = [
-  {
-    title: "Core Angular",
-    items: [
-      "Reactive Forms",
-      "Custom Validators",
-      "Module-based Routing",
-      "BehaviorSubject",
-      "Data Binding",
-      "Dependency Injection",
-      "Decorators",
-      "Lifecycle Hooks",
-      "Change Detection Strategy",
-    ],
-  },
-  {
-    title: "RxJS",
-    items: [
-      "valueChanges",
-      "combineLatest",
-      "subscribe",
-      "takeUntil",
-      "debounceTime",
-      "forkJoin",
-      "switchMap",
-      "distinctUntilChanged",
-    ],
-  },
-  {
-    title: "State Management",
-    items: ["NgRx Store", "Actions", "Reducers", "Effects", "Selectors"],
-  },
-  {
-    title: "Markup & Styling",
-    items: ["HTML5", "SCSS", "Bootstrap 5"],
-  },
-  {
-    title: "APIs & Data",
-    items: ["RESTful APIs", "JSON"],
-  },
-  {
-    title: "Unit Testing",
-    items: ["Karma", "Jasmine"],
-  },
+tsx
+const techStack = [
+  { name: "Angular", icon: "/tech/angular.svg" },
+  { name: "TypeScript", icon: "/tech/typescript.svg" },
+  { name: "JavaScript", icon: "/tech/javascript.svg" },
+  { name: "HTML5", icon: "/tech/html5.svg" },
+  { name: "CSS3", icon: "/tech/css3.svg" },
+  { name: "SCSS", icon: "/tech/scss.svg" },
+  { name: "RxJS", icon: "/tech/rxjs.svg" },
+  { name: "Angular Material", icon: "/tech/angular-material.svg" },
+  { name: "Bootstrap", icon: "/tech/bootstrap.svg" },
+  { name: "Node.js", icon: "/tech/nodejs.svg" },
+  { name: "Express.js", icon: "/tech/express.svg" },
+  { name: "MongoDB", icon: "/tech/mongodb.svg" },
+  { name: "Git", icon: "/tech/git.svg" },
+  { name: "GitHub", icon: "/tech/github.svg" },
 ];
 
 const Skills = ({ id = "skills" }: { id?: string }) => {
@@ -49,40 +21,41 @@ const Skills = ({ id = "skills" }: { id?: string }) => {
     <section id={id} className="section-padding bg-background">
       <div className="container-narrow">
         <div className="reveal mb-12">
-          <div className="label-mint mb-3">Skills</div>
-          <h2 className="text-3xl md:text-[36px] font-bold gradient-text">What I work with</h2>
+          <div className="label-mint mb-3">Tech Stack</div>
+          <h2 className="text-3xl md:text-[36px] font-bold gradient-text">
+            Technologies I Work With
+          </h2>
         </div>
 
-        <div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
-          style={{ gap: "20px" }}
-        >
-          {groups.map((g) => (
-            <div
-              key={g.title}
-              className="reveal glass-panel"
-              style={{ padding: "20px 24px" }}
-            >
-              <div
-                className="text-mint uppercase"
-                style={{
-                  fontSize: "12px",
-                  fontWeight: 500,
-                  letterSpacing: "0.1em",
-                  marginBottom: "12px",
-                }}
-              >
-                {g.title}
-              </div>
-              <div className="flex flex-wrap" style={{ gap: "8px" }}>
-                {g.items.map((item) => (
-                  <span key={item} className="glass-pill">
-                    {item}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          <div className="glass-panel p-6">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
+              {techStack.map((tech) => (
+                <div
+                  key={tech.name}
+                  className="flex flex-col items-center gap-2 transition-transform duration-300 hover:scale-110"
+                >
+                  <img
+                    src={tech.icon}
+                    alt={tech.name}
+                    title={tech.name}
+                    className="w-14 h-14 object-contain"
+                  />
+                  <span className="text-sm text-muted-foreground">
+                    {tech.name}
                   </span>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
+
+          <div className="reveal flex justify-center">
+            <img
+              src="/cognizant-tag.png"
+              alt="Cognizant"
+              className="w-full max-w-md object-contain"
+            />
+          </div>
         </div>
       </div>
     </section>
