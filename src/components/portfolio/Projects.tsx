@@ -73,24 +73,46 @@ const Projects = ({ showHeader = true, id = "projects" }: Props) => {
                     ))}
                   </div>
 
-                  <div className="flex items-center gap-2">
-                    <Tooltip>
-                      <TooltipTrigger asChild>
-                        <span tabIndex={0} className="inline-flex">
-                          <Button
-                            size="sm"
-                            disabled
-                            aria-disabled="true"
-                            className="glass-btn-secondary opacity-50 cursor-not-allowed pointer-events-none"
-                          >
-                            View Project
-                            <ArrowUpRight className="w-4 h-4" />
+                  <div className="flex flex-wrap items-center gap-2">
+                    {p.live || p.github ? (
+                      <>
+                        {p.live && (
+                          <Button size="sm" asChild className="glass-btn-primary">
+                            <a href={p.live} target="_blank" rel="noopener noreferrer">
+                              View Project
+                              <ArrowUpRight className="w-4 h-4" />
+                            </a>
                           </Button>
-                        </span>
-                      </TooltipTrigger>
-                      <TooltipContent>Private — Cognizant project</TooltipContent>
-                    </Tooltip>
+                        )}
+                        {p.github && (
+                          <Button size="sm" asChild className="glass-btn-secondary">
+                            <a href={p.github} target="_blank" rel="noopener noreferrer">
+                              <Github className="w-4 h-4" />
+                              Code
+                            </a>
+                          </Button>
+                        )}
+                      </>
+                    ) : (
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <span tabIndex={0} className="inline-flex">
+                            <Button
+                              size="sm"
+                              disabled
+                              aria-disabled="true"
+                              className="glass-btn-secondary opacity-50 cursor-not-allowed pointer-events-none"
+                            >
+                              View Project
+                              <ArrowUpRight className="w-4 h-4" />
+                            </Button>
+                          </span>
+                        </TooltipTrigger>
+                        <TooltipContent>{p.privateNote ?? "Private project"}</TooltipContent>
+                      </Tooltip>
+                    )}
                   </div>
+
                 </div>
               </article>
             ))}
