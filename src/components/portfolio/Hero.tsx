@@ -4,21 +4,16 @@ import {
   ChevronLeft,
   ChevronRight,
   Camera,
+  ArrowRight,
+  Download,
 } from "lucide-react";
 
 import { CV_DOWNLOAD_URL } from "@/config/cv";
 
-const roles = [
-  "Frontend Engineer",
-  "Programmer Analyst",
-  "Angular Specialist",
-];
+const roles = ["Frontend Engineer", "Associate"];
 
-const slideLabels = [
-  "ABOUT ME",
-  "COGNIZANT TECHNOLOGY SOLUTIONS",
-  "MY TECH STACK",
-];
+const slideLabels = ["", "MY TECH STACK"];
+
 
 type TechLogo = {
   src?: string;
@@ -42,7 +37,7 @@ const techLogos: TechLogo[] = [
   { src: "/ci-cd.png", label: "CI/CD" },
 ];
 
-const SLIDE_COUNT = 3;
+const SLIDE_COUNT = 2;
 
 const Hero = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -50,7 +45,8 @@ const Hero = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % SLIDE_COUNT);
-    }, 4500);
+    }, 6500);
+
 
     return () => clearInterval(timer);
   }, []);
@@ -119,8 +115,9 @@ const Hero = () => {
 
           <div className="hero-about-content">
             <div className="hero-small-title">
-              PROGRAMMER ANALYST
+              ASSOCIATE
             </div>
+
 
             <h2 className="hero-heading">
               Building scalable
@@ -158,26 +155,11 @@ const Hero = () => {
       </Slide>
 
       {/* ====================================== */}
-      {/* SLIDE 1 — COGNIZANT */}
+      {/* SLIDE 1 — TECH STACK */}
       {/* ====================================== */}
 
       <Slide active={activeIndex === 1}>
-        <div className="cognizant-image" />
 
-        <div className="cognizant-overlay" />
-
-        <SlideOverlay
-          activeIndex={activeIndex}
-          setActiveIndex={setActiveIndex}
-          scrollToProjects={scrollToProjects}
-        />
-      </Slide>
-
-      {/* ====================================== */}
-      {/* SLIDE 2 — TECH STACK */}
-      {/* ====================================== */}
-
-      <Slide active={activeIndex === 2}>
         <div className="tech-background" />
 
         <div className="tech-stack-container">
@@ -336,48 +318,7 @@ const Hero = () => {
           }
 
           /* ====================================== */
-          /* COGNIZANT */
-          /* ====================================== */
 
-          .cognizant-image {
-            position: absolute;
-            inset: 0;
-
-            background-image: url('/ctsoffice.jpg');
-
-            background-repeat: no-repeat;
-
-            background-size: contain;
-
-            background-position: center center;
-
-            background-color: #0B1020;
-
-            image-rendering: auto;
-
-            transform: scale(1.005);
-
-            will-change: transform;
-          }
-
-          .cognizant-overlay {
-            position: absolute;
-            inset: 0;
-
-            background:
-              linear-gradient(
-                to top,
-                rgba(3, 7, 18, 0.92) 0%,
-                rgba(3, 7, 18, 0.55) 38%,
-                rgba(3, 7, 18, 0.22) 100%
-              ),
-
-              linear-gradient(
-                to right,
-                rgba(11,16,32,0.40),
-                rgba(11,16,32,0.12)
-              );
-          }
 
           /* ====================================== */
           /* TECH STACK */
@@ -497,7 +438,8 @@ const Hero = () => {
           @media (max-width: 768px) {
 
             #hero {
-              min-height: 980px !important;
+              height: 100svh;
+              min-height: 640px !important;
             }
 
             .hero-about-container {
@@ -505,19 +447,21 @@ const Hero = () => {
 
               text-align: center;
 
-              gap: 24px;
+              gap: 18px;
 
               padding:
-                40px
-                24px
-                300px;
+                74px
+                20px
+                290px;
+
+              overflow-y: auto;
             }
 
             .profile-image-wrap {
-              width: 190px;
-              height: 190px;
+              width: 150px;
+              height: 150px;
 
-              margin-top: 18px;
+              margin-top: 4px;
             }
 
             .profile-image {
@@ -525,50 +469,83 @@ const Hero = () => {
             }
 
             .hero-heading {
-              font-size: 36px;
+              font-size: 28px;
             }
 
             .hero-description {
-              font-size: 14px;
+              font-size: 13px;
+              line-height: 1.7;
             }
 
             .hero-tags {
               justify-content: center;
+              gap: 8px;
+              margin-top: 14px;
             }
 
-            .cognizant-image {
-
-              background-size: contain;
-
-              background-position: center center;
-
-              background-repeat: no-repeat;
-
-              background-color: #0B1020;
-
-              transform: scale(1);
+            .hero-tag {
+              padding: 6px 12px;
+              font-size: 11px;
             }
 
             .tech-stack-container {
               padding:
-                70px
-                18px
-                300px;
+                60px
+                14px
+                290px;
+
+              overflow-y: auto;
             }
 
             .tech-title {
-              font-size: 26px;
+              font-size: 22px;
 
-              margin-bottom: 36px;
+              margin-bottom: 24px;
             }
 
             .tech-grid {
               grid-template-columns:
                 repeat(3, 1fr);
 
-              gap: 22px 10px;
+              gap: 18px 8px;
+            }
+
+            .scroll-down {
+              display: none;
+            }
+
+            .hero-btn-row button,
+            .hero-btn-row a {
+              padding: 10px 16px !important;
+              font-size: 13px !important;
+              white-space: nowrap;
             }
           }
+
+          @media (max-width: 430px) {
+
+            .hero-about-container {
+              padding: 60px 16px 282px;
+            }
+
+            .profile-image-wrap {
+              width: 124px;
+              height: 124px;
+            }
+
+            .hero-heading {
+              font-size: 25px;
+            }
+
+            .hero-description {
+              font-size: 12.5px;
+            }
+
+            .tech-stack-container {
+              padding: 48px 12px 282px;
+            }
+          }
+
         `}
       </style>
     </section>
@@ -668,14 +645,14 @@ const SlideOverlay = ({
         zIndex: 10,
 
         padding: showHeroText
-          ? "20px 20px 40px"
-          : "18px 20px 34px",
+          ? "16px 20px 26px"
+          : "14px 20px 24px",
 
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
 
-        gap: showHeroText ? 12 : 10,
+        gap: showHeroText ? 8 : 8,
 
         textAlign: "center",
 
@@ -685,16 +662,18 @@ const SlideOverlay = ({
             : "linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.25) 100%)",
       }}
     >
-      <div
-        style={{
-          color: "#3ECFA4",
-          fontSize: 11,
-          fontWeight: 600,
-          letterSpacing: "0.16em",
-        }}
-      >
-        {slideLabels[activeIndex]}
-      </div>
+      {slideLabels[activeIndex] ? (
+        <div
+          style={{
+            color: "#3ECFA4",
+            fontSize: 11,
+            fontWeight: 600,
+            letterSpacing: "0.16em",
+          }}
+        >
+          {slideLabels[activeIndex]}
+        </div>
+      ) : null}
 
       {showHeroText && (
         <>
@@ -702,7 +681,7 @@ const SlideOverlay = ({
             style={{
               margin: 0,
 
-              fontSize: "clamp(34px, 6vw, 62px)",
+              fontSize: "clamp(32px, 6vw, 62px)",
 
               fontWeight: 800,
 
@@ -722,9 +701,9 @@ const SlideOverlay = ({
             style={{
               color: "#3ECFA4",
 
-              fontSize: "clamp(16px, 2vw, 24px)",
+              fontSize: "clamp(15px, 2vw, 24px)",
 
-              minHeight: 28,
+              minHeight: 24,
             }}
           >
             {roles[activeIndex]}
@@ -733,13 +712,15 @@ const SlideOverlay = ({
       )}
 
       <div
+        className="hero-btn-row"
         style={{
           display: "flex",
           flexWrap: "wrap",
           justifyContent: "center",
+          alignItems: "center",
 
-          gap: 14,
-          marginTop: 4,
+          gap: 12,
+          marginTop: 2,
         }}
       >
         <button
@@ -751,15 +732,21 @@ const SlideOverlay = ({
 
             borderRadius: 999,
 
-            padding: "12px 28px",
+            padding: "12px 24px",
+            minHeight: 44,
 
             fontSize: 14,
             fontWeight: 600,
 
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 8,
+
             cursor: "pointer",
           }}
         >
-          View My Work →
+          View My Work
+          <ArrowRight className="w-4 h-4" />
         </button>
 
         <a
@@ -773,14 +760,20 @@ const SlideOverlay = ({
 
             borderRadius: 999,
 
-            padding: "12px 28px",
+            padding: "12px 24px",
+            minHeight: 44,
 
             fontSize: 14,
             textDecoration: "none",
             fontWeight: 500,
+
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 8,
           }}
         >
-          Download CV ↓
+          Download CV
+          <Download className="w-4 h-4" />
         </a>
       </div>
 
@@ -788,19 +781,20 @@ const SlideOverlay = ({
         style={{
           display: "flex",
           gap: 8,
-          marginTop: 4,
+          marginTop: 2,
         }}
       >
-        {[0, 1, 2].map((index) => {
+        {[0, 1].map((index) => {
           const active = index === activeIndex;
 
           return (
             <button
               key={index}
               onClick={() => setActiveIndex(index)}
+              aria-label={`Go to slide ${index + 1}`}
               style={{
-                width: active ? 28 : 8,
-                height: 8,
+                width: active ? 28 : 10,
+                height: 10,
 
                 borderRadius: 999,
 
@@ -816,6 +810,7 @@ const SlideOverlay = ({
           );
         })}
       </div>
+
     </div>
   );
 };

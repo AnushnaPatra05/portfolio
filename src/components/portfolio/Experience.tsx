@@ -23,18 +23,30 @@ const entries = [
     ],
   },
   {
-    current: true,
     role: "Programmer Analyst",
     company: "Cognizant Technology Solutions",
-    period: "2024 – Present",
+    period: "2024 – 2025",
     bullets: [
-      "Leading Angular feature development for enterprise-scale client applications",
-      "Implementing NgRx state management and complex RxJS data pipelines",
-      "Conducting code reviews and mentoring junior developers",
-      "Collaborating with cross-functional teams on REST API integration",
+      "Led Angular feature development for enterprise-scale client applications",
+      "Implemented NgRx state management and complex RxJS data pipelines",
+      "Conducted code reviews and mentored junior developers",
+      "Collaborated with cross-functional teams on REST API integration",
+    ],
+  },
+  {
+    current: true,
+    role: "Associate",
+    company: "Cognizant Technology Solutions",
+    period: "2025 – Present",
+    bullets: [
+      "Owning end-to-end delivery of Angular features for enterprise clients",
+      "Driving architecture decisions, performance tuning, and accessibility improvements",
+      "Partnering with product and QA to ship reliable, well-tested releases",
+      "Mentoring developers and maintaining shared UI component standards",
     ],
   },
 ];
+
 
 const Experience = () => {
   const sectionRef = useRef<HTMLDivElement>(null);

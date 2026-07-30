@@ -634,3 +634,33 @@
     transition: none !important;
   }
 }
+
+/* ---- Mobile responsiveness pass (Android & iOS) ---- */
+html, body {
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+}
+
+@supports (-webkit-touch-callout: none) {
+  input, textarea, select {
+    font-size: 16px; /* prevents iOS zoom on focus */
+  }
+}
+
+@media (max-width: 768px) {
+  button, a[role="button"], .glass-btn-primary, .glass-btn-secondary {
+    min-height: 44px;
+  }
+
+  .section-padding {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+
+  .container-narrow {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  h1 { word-break: break-word; }
+}
