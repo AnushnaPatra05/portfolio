@@ -452,7 +452,7 @@ const Hero = () => {
               padding:
                 74px
                 20px
-                236px;
+                290px;
 
               overflow-y: auto;
             }
@@ -492,7 +492,7 @@ const Hero = () => {
               padding:
                 60px
                 14px
-                236px;
+                290px;
 
               overflow-y: auto;
             }
@@ -513,12 +513,19 @@ const Hero = () => {
             .scroll-down {
               display: none;
             }
+
+            .hero-btn-row button,
+            .hero-btn-row a {
+              padding: 10px 16px !important;
+              font-size: 13px !important;
+              white-space: nowrap;
+            }
           }
 
           @media (max-width: 430px) {
 
             .hero-about-container {
-              padding: 66px 16px 228px;
+              padding: 60px 16px 282px;
             }
 
             .profile-image-wrap {
@@ -535,7 +542,7 @@ const Hero = () => {
             }
 
             .tech-stack-container {
-              padding: 52px 12px 228px;
+              padding: 48px 12px 282px;
             }
           }
 
