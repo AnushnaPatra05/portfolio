@@ -1,4 +1,4 @@
-tsx
+
 const techStack = [
   { name: "Angular", icon: "/tech/angular.svg" },
   { name: "TypeScript", icon: "/tech/typescript.svg" },
