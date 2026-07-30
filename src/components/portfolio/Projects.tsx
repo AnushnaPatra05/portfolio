@@ -2,15 +2,6 @@ import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipTrigger, TooltipProvider } from "@/components/ui/tooltip";
 import { ArrowUpRight, Github } from "lucide-react";
 
-type Project = {
-  title: string;
-  desc: string;
-  tags: string[];
-  live?: string;
-  github?: string;
-  privateNote?: string;
-};
-
 export const projects: Project[] = [
   {
     title: "VoxNote AI — Voice-to-Notes Assistant",
@@ -29,7 +20,13 @@ export const projects: Project[] = [
     title: "SASSY — Safety Advisory Services System",
     desc: "A sophisticated Angular-based pre-sales platform designed to streamline the safety advisory workflow between prevention experts, brokers, and underwriters. SASSY sits at the heart of the customer and broker pre-sales journey, enabling prevention specialists to deliver structured safety recommendations that directly inform underwriting decisions. The system captures expert safety input, digitises the advisory process, and ensures that risk assessments are consistently communicated to support customer safety outcomes and policy accuracy.",
     tags: ["Angular", "TypeScript", "REST API", "SCSS", "Enterprise UI"],
-    privateNote: "Private — Cognizant project",
+  },
+  {
+    title: "VoxNote AI — Real-time Multilingual Speech Transcription",
+    desc: "A full-stack AI voice transcription platform supporting speech-to-text across 10+ languages with automatic language detection via the Groq Whisper API. Features a modular React frontend with custom hooks for audio capture, transcription state, and language selection, a JWT authentication flow, and usage-based rate limiting on the Express.js backend to control API costs and secure endpoints. Deployed independently — backend on Render, frontend on Vercel.",
+    tags: ["React", "Node.js", "Express.js", "MongoDB", "Groq Whisper API", "JWT", "Render", "Vercel"],
+    liveUrl: "https://vox-note-jet.vercel.app/",
+    githubUrl: "https://github.com/AnushnaPatra05",
   },
 ];
 
@@ -73,24 +70,22 @@ const Projects = ({ showHeader = true, id = "projects" }: Props) => {
                     ))}
                   </div>
 
-                  <div className="flex flex-wrap items-center gap-2">
-                    {p.live || p.github ? (
+                  <div className="flex items-center gap-2">
+                    {p.liveUrl ? (
                       <>
-                        {p.live && (
-                          <Button size="sm" asChild className="glass-btn-primary">
-                            <a href={p.live} target="_blank" rel="noopener noreferrer">
-                              View Project
-                              <ArrowUpRight className="w-4 h-4" />
-                            </a>
+                        <a href={p.liveUrl} target="_blank" rel="noopener noreferrer">
+                          <Button size="sm" className="glass-btn-secondary">
+                            Live Demo
+                            <ArrowUpRight className="w-4 h-4" />
                           </Button>
-                        )}
-                        {p.github && (
-                          <Button size="sm" asChild className="glass-btn-secondary">
-                            <a href={p.github} target="_blank" rel="noopener noreferrer">
+                        </a>
+                        {p.githubUrl && (
+                          <a href={p.githubUrl} target="_blank" rel="noopener noreferrer">
+                            <Button size="sm" variant="outline" className="glass-btn-secondary">
+                              GitHub
                               <Github className="w-4 h-4" />
-                              Code
-                            </a>
-                          </Button>
+                            </Button>
+                          </a>
                         )}
                       </>
                     ) : (
@@ -108,7 +103,7 @@ const Projects = ({ showHeader = true, id = "projects" }: Props) => {
                             </Button>
                           </span>
                         </TooltipTrigger>
-                        <TooltipContent>{p.privateNote ?? "Private project"}</TooltipContent>
+                        <TooltipContent>Private — Cognizant project</TooltipContent>
                       </Tooltip>
                     )}
                   </div>

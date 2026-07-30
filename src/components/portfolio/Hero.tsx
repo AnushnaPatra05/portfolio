@@ -6,14 +6,16 @@ import {
   Camera,
   ArrowRight,
   Download,
+  ArrowRight,
+  Download,
 } from "lucide-react";
 
 import { CV_DOWNLOAD_URL } from "@/config/cv";
 
 const roles = ["Frontend Engineer", "Associate"];
+const roles = ["Frontend Engineer", "Associate"];
 
 const slideLabels = ["", "MY TECH STACK"];
-
 
 type TechLogo = {
   src?: string;
@@ -38,6 +40,7 @@ const techLogos: TechLogo[] = [
 ];
 
 const SLIDE_COUNT = 2;
+const SLIDE_COUNT = 2;
 
 const Hero = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -46,7 +49,6 @@ const Hero = () => {
     const timer = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % SLIDE_COUNT);
     }, 6500);
-
 
     return () => clearInterval(timer);
   }, []);
@@ -114,10 +116,7 @@ const Hero = () => {
           </div>
 
           <div className="hero-about-content">
-            <div className="hero-small-title">
-              ASSOCIATE
-            </div>
-
+            <div className="hero-small-title">ASSOCIATE</div>
 
             <h2 className="hero-heading">
               Building scalable
@@ -156,10 +155,10 @@ const Hero = () => {
 
       {/* ====================================== */}
       {/* SLIDE 1 — TECH STACK */}
+      {/* SLIDE 1 — TECH STACK */}
       {/* ====================================== */}
 
       <Slide active={activeIndex === 1}>
-
         <div className="tech-background" />
 
         <div className="tech-stack-container">
@@ -318,9 +317,6 @@ const Hero = () => {
           }
 
           /* ====================================== */
-
-
-          /* ====================================== */
           /* TECH STACK */
           /* ====================================== */
 
@@ -438,8 +434,8 @@ const Hero = () => {
           @media (max-width: 768px) {
 
             #hero {
-              height: 100svh;
-              min-height: 640px !important;
+              height: auto !important;
+              min-height: 100vh !important;
             }
 
             .hero-about-container {
@@ -450,11 +446,9 @@ const Hero = () => {
               gap: 18px;
 
               padding:
-                74px
-                20px
-                290px;
-
-              overflow-y: auto;
+                40px
+                24px
+                260px;
             }
 
             .profile-image-wrap {
@@ -483,54 +477,28 @@ const Hero = () => {
               margin-top: 14px;
             }
 
-            .hero-tag {
-              padding: 6px 12px;
-              font-size: 11px;
-            }
-
             .tech-stack-container {
               padding:
-                60px
-                14px
-                290px;
+                70px
+                18px
+                190px;
 
+              max-height: 100%;
               overflow-y: auto;
+              -webkit-overflow-scrolling: touch;
             }
 
             .tech-title {
-              font-size: 22px;
+              font-size: 24px;
 
-              margin-bottom: 24px;
+              margin-bottom: 28px;
             }
 
             .tech-grid {
               grid-template-columns:
                 repeat(3, 1fr);
 
-              gap: 18px 8px;
-            }
-
-            .scroll-down {
-              display: none;
-            }
-
-            .hero-btn-row button,
-            .hero-btn-row a {
-              padding: 10px 16px !important;
-              font-size: 13px !important;
-              white-space: nowrap;
-            }
-          }
-
-          @media (max-width: 430px) {
-
-            .hero-about-container {
-              padding: 60px 16px 282px;
-            }
-
-            .profile-image-wrap {
-              width: 124px;
-              height: 124px;
+              gap: 18px 10px;
             }
 
             .hero-heading {
@@ -633,6 +601,7 @@ const SlideOverlay = ({
 }: any) => {
 
   const showHeroText = activeIndex === 0;
+  const label = slideLabels[activeIndex];
 
   return (
     <div
@@ -645,24 +614,24 @@ const SlideOverlay = ({
         zIndex: 10,
 
         padding: showHeroText
-          ? "16px 20px 26px"
-          : "14px 20px 24px",
+          ? "16px 20px 32px"
+          : "14px 20px 26px",
 
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
 
-        gap: showHeroText ? 8 : 8,
+        gap: showHeroText ? 10 : 8,
 
         textAlign: "center",
 
         background:
           activeIndex === 0
             ? "linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.55) 60%, transparent 100%)"
-            : "linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.25) 100%)",
+            : "linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.55) 100%)",
       }}
     >
-      {slideLabels[activeIndex] ? (
+      {label && (
         <div
           style={{
             color: "#3ECFA4",
@@ -671,9 +640,9 @@ const SlideOverlay = ({
             letterSpacing: "0.16em",
           }}
         >
-          {slideLabels[activeIndex]}
+          {label}
         </div>
-      ) : null}
+      )}
 
       {showHeroText && (
         <>
@@ -726,6 +695,10 @@ const SlideOverlay = ({
         <button
           onClick={scrollToProjects}
           style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 8,
+
             border: "1.5px solid #3ECFA4",
             background: "transparent",
             color: "#3ECFA4",
@@ -733,7 +706,6 @@ const SlideOverlay = ({
             borderRadius: 999,
 
             padding: "12px 24px",
-            minHeight: 44,
 
             fontSize: 14,
             fontWeight: 600,
@@ -747,6 +719,8 @@ const SlideOverlay = ({
         >
           View My Work
           <ArrowRight className="w-4 h-4" />
+          View My Work
+          <ArrowRight className="w-4 h-4" />
         </button>
 
         <a
@@ -754,6 +728,10 @@ const SlideOverlay = ({
           target="_blank"
           rel="noopener noreferrer"
           style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 8,
+
             border: "1px solid rgba(255,255,255,0.16)",
             background: "rgba(255,255,255,0.08)",
             color: "#ffffff",
@@ -761,7 +739,6 @@ const SlideOverlay = ({
             borderRadius: 999,
 
             padding: "12px 24px",
-            minHeight: 44,
 
             fontSize: 14,
             textDecoration: "none",
@@ -774,6 +751,8 @@ const SlideOverlay = ({
         >
           Download CV
           <Download className="w-4 h-4" />
+          Download CV
+          <Download className="w-4 h-4" />
         </a>
       </div>
 
@@ -784,7 +763,7 @@ const SlideOverlay = ({
           marginTop: 2,
         }}
       >
-        {[0, 1].map((index) => {
+        {Array.from({ length: SLIDE_COUNT }, (_, index) => {
           const active = index === activeIndex;
 
           return (
