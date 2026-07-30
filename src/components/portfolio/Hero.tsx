@@ -599,14 +599,14 @@ const SlideOverlay = ({
         zIndex: 10,
 
         padding: showHeroText
-          ? "20px 20px 40px"
-          : "18px 20px 34px",
+          ? "16px 20px 26px"
+          : "14px 20px 24px",
 
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
 
-        gap: showHeroText ? 12 : 10,
+        gap: showHeroText ? 8 : 8,
 
         textAlign: "center",
 
@@ -616,16 +616,18 @@ const SlideOverlay = ({
             : "linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.25) 100%)",
       }}
     >
-      <div
-        style={{
-          color: "#3ECFA4",
-          fontSize: 11,
-          fontWeight: 600,
-          letterSpacing: "0.16em",
-        }}
-      >
-        {slideLabels[activeIndex]}
-      </div>
+      {slideLabels[activeIndex] ? (
+        <div
+          style={{
+            color: "#3ECFA4",
+            fontSize: 11,
+            fontWeight: 600,
+            letterSpacing: "0.16em",
+          }}
+        >
+          {slideLabels[activeIndex]}
+        </div>
+      ) : null}
 
       {showHeroText && (
         <>
@@ -633,7 +635,7 @@ const SlideOverlay = ({
             style={{
               margin: 0,
 
-              fontSize: "clamp(34px, 6vw, 62px)",
+              fontSize: "clamp(32px, 6vw, 62px)",
 
               fontWeight: 800,
 
@@ -653,9 +655,9 @@ const SlideOverlay = ({
             style={{
               color: "#3ECFA4",
 
-              fontSize: "clamp(16px, 2vw, 24px)",
+              fontSize: "clamp(15px, 2vw, 24px)",
 
-              minHeight: 28,
+              minHeight: 24,
             }}
           >
             {roles[activeIndex]}
@@ -664,13 +666,15 @@ const SlideOverlay = ({
       )}
 
       <div
+        className="hero-btn-row"
         style={{
           display: "flex",
           flexWrap: "wrap",
           justifyContent: "center",
+          alignItems: "center",
 
-          gap: 14,
-          marginTop: 4,
+          gap: 12,
+          marginTop: 2,
         }}
       >
         <button
@@ -682,15 +686,21 @@ const SlideOverlay = ({
 
             borderRadius: 999,
 
-            padding: "12px 28px",
+            padding: "12px 24px",
+            minHeight: 44,
 
             fontSize: 14,
             fontWeight: 600,
 
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 8,
+
             cursor: "pointer",
           }}
         >
-          View My Work →
+          View My Work
+          <ArrowRight className="w-4 h-4" />
         </button>
 
         <a
@@ -704,14 +714,20 @@ const SlideOverlay = ({
 
             borderRadius: 999,
 
-            padding: "12px 28px",
+            padding: "12px 24px",
+            minHeight: 44,
 
             fontSize: 14,
             textDecoration: "none",
             fontWeight: 500,
+
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 8,
           }}
         >
-          Download CV ↓
+          Download CV
+          <Download className="w-4 h-4" />
         </a>
       </div>
 
@@ -719,19 +735,20 @@ const SlideOverlay = ({
         style={{
           display: "flex",
           gap: 8,
-          marginTop: 4,
+          marginTop: 2,
         }}
       >
-        {[0, 1, 2].map((index) => {
+        {[0, 1].map((index) => {
           const active = index === activeIndex;
 
           return (
             <button
               key={index}
               onClick={() => setActiveIndex(index)}
+              aria-label={`Go to slide ${index + 1}`}
               style={{
-                width: active ? 28 : 8,
-                height: 8,
+                width: active ? 28 : 10,
+                height: 10,
 
                 borderRadius: 999,
 
@@ -747,6 +764,7 @@ const SlideOverlay = ({
           );
         })}
       </div>
+
     </div>
   );
 };
