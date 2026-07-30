@@ -438,7 +438,8 @@ const Hero = () => {
           @media (max-width: 768px) {
 
             #hero {
-              min-height: 980px !important;
+              height: 100svh;
+              min-height: 640px !important;
             }
 
             .hero-about-container {
@@ -446,19 +447,21 @@ const Hero = () => {
 
               text-align: center;
 
-              gap: 24px;
+              gap: 18px;
 
               padding:
-                40px
-                24px
-                300px;
+                74px
+                20px
+                236px;
+
+              overflow-y: auto;
             }
 
             .profile-image-wrap {
-              width: 190px;
-              height: 190px;
+              width: 150px;
+              height: 150px;
 
-              margin-top: 18px;
+              margin-top: 4px;
             }
 
             .profile-image {
@@ -466,40 +469,76 @@ const Hero = () => {
             }
 
             .hero-heading {
-              font-size: 36px;
+              font-size: 28px;
             }
 
             .hero-description {
-              font-size: 14px;
+              font-size: 13px;
+              line-height: 1.7;
             }
 
             .hero-tags {
               justify-content: center;
+              gap: 8px;
+              margin-top: 14px;
             }
 
-
-
+            .hero-tag {
+              padding: 6px 12px;
+              font-size: 11px;
+            }
 
             .tech-stack-container {
               padding:
-                70px
-                18px
-                300px;
+                60px
+                14px
+                236px;
+
+              overflow-y: auto;
             }
 
             .tech-title {
-              font-size: 26px;
+              font-size: 22px;
 
-              margin-bottom: 36px;
+              margin-bottom: 24px;
             }
 
             .tech-grid {
               grid-template-columns:
                 repeat(3, 1fr);
 
-              gap: 22px 10px;
+              gap: 18px 8px;
+            }
+
+            .scroll-down {
+              display: none;
             }
           }
+
+          @media (max-width: 430px) {
+
+            .hero-about-container {
+              padding: 66px 16px 228px;
+            }
+
+            .profile-image-wrap {
+              width: 124px;
+              height: 124px;
+            }
+
+            .hero-heading {
+              font-size: 25px;
+            }
+
+            .hero-description {
+              font-size: 12.5px;
+            }
+
+            .tech-stack-container {
+              padding: 52px 12px 228px;
+            }
+          }
+
         `}
       </style>
     </section>
