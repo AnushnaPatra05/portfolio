@@ -4,21 +4,16 @@ import {
   ChevronLeft,
   ChevronRight,
   Camera,
+  ArrowRight,
+  Download,
 } from "lucide-react";
 
 import { CV_DOWNLOAD_URL } from "@/config/cv";
 
-const roles = [
-  "Frontend Engineer",
-  "Programmer Analyst",
-  "Angular Specialist",
-];
+const roles = ["Frontend Engineer", "Associate"];
 
-const slideLabels = [
-  "ABOUT ME",
-  "COGNIZANT TECHNOLOGY SOLUTIONS",
-  "MY TECH STACK",
-];
+const slideLabels = ["", "MY TECH STACK"];
+
 
 type TechLogo = {
   src?: string;
@@ -42,7 +37,7 @@ const techLogos: TechLogo[] = [
   { src: "/ci-cd.png", label: "CI/CD" },
 ];
 
-const SLIDE_COUNT = 3;
+const SLIDE_COUNT = 2;
 
 const Hero = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -50,7 +45,8 @@ const Hero = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % SLIDE_COUNT);
-    }, 4500);
+    }, 6500);
+
 
     return () => clearInterval(timer);
   }, []);
@@ -119,8 +115,9 @@ const Hero = () => {
 
           <div className="hero-about-content">
             <div className="hero-small-title">
-              PROGRAMMER ANALYST
+              ASSOCIATE
             </div>
+
 
             <h2 className="hero-heading">
               Building scalable
@@ -158,26 +155,11 @@ const Hero = () => {
       </Slide>
 
       {/* ====================================== */}
-      {/* SLIDE 1 — COGNIZANT */}
+      {/* SLIDE 1 — TECH STACK */}
       {/* ====================================== */}
 
       <Slide active={activeIndex === 1}>
-        <div className="cognizant-image" />
 
-        <div className="cognizant-overlay" />
-
-        <SlideOverlay
-          activeIndex={activeIndex}
-          setActiveIndex={setActiveIndex}
-          scrollToProjects={scrollToProjects}
-        />
-      </Slide>
-
-      {/* ====================================== */}
-      {/* SLIDE 2 — TECH STACK */}
-      {/* ====================================== */}
-
-      <Slide active={activeIndex === 2}>
         <div className="tech-background" />
 
         <div className="tech-stack-container">
@@ -336,48 +318,7 @@ const Hero = () => {
           }
 
           /* ====================================== */
-          /* COGNIZANT */
-          /* ====================================== */
 
-          .cognizant-image {
-            position: absolute;
-            inset: 0;
-
-            background-image: url('/ctsoffice.jpg');
-
-            background-repeat: no-repeat;
-
-            background-size: contain;
-
-            background-position: center center;
-
-            background-color: #0B1020;
-
-            image-rendering: auto;
-
-            transform: scale(1.005);
-
-            will-change: transform;
-          }
-
-          .cognizant-overlay {
-            position: absolute;
-            inset: 0;
-
-            background:
-              linear-gradient(
-                to top,
-                rgba(3, 7, 18, 0.92) 0%,
-                rgba(3, 7, 18, 0.55) 38%,
-                rgba(3, 7, 18, 0.22) 100%
-              ),
-
-              linear-gradient(
-                to right,
-                rgba(11,16,32,0.40),
-                rgba(11,16,32,0.12)
-              );
-          }
 
           /* ====================================== */
           /* TECH STACK */
@@ -536,18 +477,8 @@ const Hero = () => {
               justify-content: center;
             }
 
-            .cognizant-image {
 
-              background-size: contain;
 
-              background-position: center center;
-
-              background-repeat: no-repeat;
-
-              background-color: #0B1020;
-
-              transform: scale(1);
-            }
 
             .tech-stack-container {
               padding:
