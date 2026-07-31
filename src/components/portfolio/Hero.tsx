@@ -6,13 +6,10 @@ import {
   Camera,
   ArrowRight,
   Download,
-  ArrowRight,
-  Download,
 } from "lucide-react";
 
 import { CV_DOWNLOAD_URL } from "@/config/cv";
 
-const roles = ["Frontend Engineer", "Associate"];
 const roles = ["Frontend Engineer", "Associate"];
 
 const slideLabels = ["", "MY TECH STACK"];
@@ -39,7 +36,6 @@ const techLogos: TechLogo[] = [
   { src: "/ci-cd.png", label: "CI/CD" },
 ];
 
-const SLIDE_COUNT = 2;
 const SLIDE_COUNT = 2;
 
 const Hero = () => {
@@ -107,12 +103,17 @@ const Hero = () => {
         <div className="hero-bg" />
 
         <div className="hero-about-container">
-          <div className="profile-image-wrap">
-            <img
-              src="/photoANUSHNA.jpg"
-              alt="Anushna Patra"
-              className="profile-image"
-            />
+          <div className="profile-side">
+            <div className="profile-image-wrap">
+              <img
+                src="/photoANUSHNA.jpg"
+                alt="Anushna Patra"
+                className="profile-image"
+              />
+            </div>
+
+            <h1 className="profile-name">Anushna Patra</h1>
+            <div className="profile-role">{roles[0]}</div>
           </div>
 
           <div className="hero-about-content">
@@ -154,7 +155,6 @@ const Hero = () => {
       </Slide>
 
       {/* ====================================== */}
-      {/* SLIDE 1 — TECH STACK */}
       {/* SLIDE 1 — TECH STACK */}
       {/* ====================================== */}
 
@@ -231,6 +231,40 @@ const Hero = () => {
             z-index: 2;
           }
 
+          .profile-side {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            gap: 14px;
+
+            flex-shrink: 0;
+          }
+
+          .profile-name {
+            margin: 0;
+
+            font-size: clamp(22px, 3vw, 32px);
+            font-weight: 800;
+            line-height: 1.05;
+
+            text-align: center;
+
+            background:
+              linear-gradient(90deg, #3ECFA4 0%, #a855f7 100%);
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+          }
+
+          .profile-role {
+            color: #3ECFA4;
+
+            font-size: clamp(13px, 1.4vw, 15px);
+
+            text-align: center;
+          }
+
           .profile-image-wrap {
             width: 270px;
             height: 270px;
@@ -277,8 +311,8 @@ const Hero = () => {
           .hero-heading {
             color: white;
 
-            font-size: 58px;
-            line-height: 1.08;
+            font-size: 42px;
+            line-height: 1.12;
 
             font-weight: 800;
 
@@ -394,7 +428,7 @@ const Hero = () => {
             position: absolute;
 
             left: 50%;
-            bottom: 18px;
+            bottom: 8px;
 
             transform: translateX(-50%);
 
@@ -423,7 +457,7 @@ const Hero = () => {
             }
 
             .hero-heading {
-              font-size: 46px;
+              font-size: 34px;
             }
           }
 
@@ -462,12 +496,24 @@ const Hero = () => {
               object-position: center 10%;
             }
 
+            .profile-side {
+              gap: 8px;
+            }
+
+            .profile-name {
+              font-size: 20px;
+            }
+
+            .profile-role {
+              font-size: 12px;
+            }
+
             .hero-heading {
-              font-size: 28px;
+              font-size: 22px;
             }
 
             .hero-description {
-              font-size: 13px;
+              font-size: 12.5px;
               line-height: 1.7;
             }
 
@@ -478,10 +524,7 @@ const Hero = () => {
             }
 
             .tech-stack-container {
-              padding:
-                70px
-                18px
-                190px;
+              padding: 48px 12px 282px;
 
               max-height: 100%;
               overflow-y: auto;
@@ -500,20 +543,7 @@ const Hero = () => {
 
               gap: 18px 10px;
             }
-
-            .hero-heading {
-              font-size: 25px;
-            }
-
-            .hero-description {
-              font-size: 12.5px;
-            }
-
-            .tech-stack-container {
-              padding: 48px 12px 282px;
-            }
           }
-
         `}
       </style>
     </section>
@@ -614,8 +644,8 @@ const SlideOverlay = ({
         zIndex: 10,
 
         padding: showHeroText
-          ? "16px 20px 32px"
-          : "14px 20px 26px",
+          ? "16px 20px 130px"
+          : "14px 20px 125px",
 
         display: "flex",
         flexDirection: "column",
@@ -642,42 +672,6 @@ const SlideOverlay = ({
         >
           {label}
         </div>
-      )}
-
-      {showHeroText && (
-        <>
-          <h1
-            style={{
-              margin: 0,
-
-              fontSize: "clamp(32px, 6vw, 62px)",
-
-              fontWeight: 800,
-
-              lineHeight: 1,
-
-              background:
-                "linear-gradient(90deg, #3ECFA4 0%, #a855f7 100%)",
-
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-            }}
-          >
-            Anushna Patra
-          </h1>
-
-          <div
-            style={{
-              color: "#3ECFA4",
-
-              fontSize: "clamp(15px, 2vw, 24px)",
-
-              minHeight: 24,
-            }}
-          >
-            {roles[activeIndex]}
-          </div>
-        </>
       )}
 
       <div
@@ -710,15 +704,9 @@ const SlideOverlay = ({
             fontSize: 14,
             fontWeight: 600,
 
-            display: "inline-flex",
-            alignItems: "center",
-            gap: 8,
-
             cursor: "pointer",
           }}
         >
-          View My Work
-          <ArrowRight className="w-4 h-4" />
           View My Work
           <ArrowRight className="w-4 h-4" />
         </button>
@@ -743,14 +731,8 @@ const SlideOverlay = ({
             fontSize: 14,
             textDecoration: "none",
             fontWeight: 500,
-
-            display: "inline-flex",
-            alignItems: "center",
-            gap: 8,
           }}
         >
-          Download CV
-          <Download className="w-4 h-4" />
           Download CV
           <Download className="w-4 h-4" />
         </a>
@@ -789,7 +771,6 @@ const SlideOverlay = ({
           );
         })}
       </div>
-
     </div>
   );
 };

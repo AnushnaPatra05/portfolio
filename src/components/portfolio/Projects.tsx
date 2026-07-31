@@ -2,19 +2,11 @@ import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipTrigger, TooltipProvider } from "@/components/ui/tooltip";
 import { ArrowUpRight, Github } from "lucide-react";
 
-export const projects: Project[] = [
-  {
-    title: "VoxNote AI — Voice-to-Notes Assistant",
-    desc: "A personal project that turns spoken thoughts into structured, searchable notes. Speech is captured in the browser, transcribed, and then summarised into clean bullet points, action items, and tags by an AI model. Built with a focus on a fast, distraction-free interface, offline-friendly drafts, and instant search across everything you have ever dictated.",
-    tags: ["React", "TypeScript", "Web Speech API", "AI", "Tailwind CSS"],
-    live: "https://voxnote-ai.lovable.app",
-    github: "https://github.com/anushnapatra/voxnote-ai",
-  },
+export const projects = [
   {
     title: "WCT — Workforce Compliance Tracker",
     desc: "An enterprise-grade Angular application built for workforce compliance management at scale. The system fetches employee records from a relational database and applies intelligent filtering logic based on each user's last sign-in date to identify compliance gaps. Once the filtered dataset is prepared, the application triggers personalised automated emails to each user individually — each containing a secure login link to the application. Emails are dispatched in the user's preferred language, ensuring accessibility across a multilingual workforce. Every email event is subsequently logged to a dedicated audit table for full traceability and compliance reporting.",
     tags: ["Angular", "Java", "AWS", "REST API", "SQL", "Multilingual", "Email Automation"],
-    privateNote: "Private — Cognizant project",
   },
   {
     title: "SASSY — Safety Advisory Services System",
@@ -29,7 +21,6 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/AnushnaPatra05",
   },
 ];
-
 
 type Props = { showHeader?: boolean; id?: string };
 
@@ -107,7 +98,6 @@ const Projects = ({ showHeader = true, id = "projects" }: Props) => {
                       </Tooltip>
                     )}
                   </div>
-
                 </div>
               </article>
             ))}

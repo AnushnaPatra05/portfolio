@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { ChevronLeft, ChevronRight, ExternalLink, FileText, Search } from "lucide-react";
+import { ChevronLeft, ChevronRight, FileText, Search } from "lucide-react";
 import { certificates, type Certificate } from "@/data/certificates";
 import CertificateViewer from "./CertificateViewer";
 
@@ -98,11 +98,7 @@ const CertificationsCarousel = () => {
             {certificates.map((cert) => (
               <button
                 key={cert.id}
-                onClick={() =>
-                  cert.type === "link"
-                    ? window.open(cert.file, "_blank", "noopener,noreferrer")
-                    : setSelected(cert)
-                }
+                onClick={() => setSelected(cert)}
                 className="reveal group transition-smooth text-left glass-cert"
                 style={{
                   width: `${CARD_WIDTH}px`,
@@ -159,11 +155,6 @@ const CertificationsCarousel = () => {
                         (e.currentTarget as HTMLImageElement).style.display = "none";
                       }}
                     />
-                  ) : cert.type === "link" ? (
-                    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "6px" }}>
-                      <ExternalLink size={34} color="#3ECFA4" />
-                      <div style={{ color: "#A0A0A0", fontSize: "12px" }}>Verify online</div>
-                    </div>
                   ) : (
                     <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "6px" }}>
                       <FileText size={36} color="#3ECFA4" />
@@ -181,14 +172,9 @@ const CertificationsCarousel = () => {
                       justifyContent: "center",
                     }}
                   >
-                    {cert.type === "link" ? (
-                      <ExternalLink size={22} color="#3ECFA4" />
-                    ) : (
-                      <Search size={22} color="#3ECFA4" />
-                    )}
+                    <Search size={22} color="#3ECFA4" />
                   </div>
                 </div>
-
                 <div style={{ minHeight: 0 }}>
                   <div
                     style={{

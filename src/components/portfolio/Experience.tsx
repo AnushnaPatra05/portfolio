@@ -49,7 +49,6 @@ const entries = [
   },
 ];
 
-
 const Experience = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(false);
