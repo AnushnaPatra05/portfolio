@@ -82,6 +82,7 @@ const Hero = () => {
       <button
         onClick={goPrev}
         aria-label="Previous Slide"
+        className="hero-nav-arrow"
         style={arrowStyle("left")}
       >
         <ChevronLeft className="w-5 h-5" />
@@ -90,6 +91,7 @@ const Hero = () => {
       <button
         onClick={goNext}
         aria-label="Next Slide"
+        className="hero-nav-arrow"
         style={arrowStyle("right")}
       >
         <ChevronRight className="w-5 h-5" />
@@ -438,6 +440,21 @@ const Hero = () => {
           }
 
           /* ====================================== */
+          /* DESKTOP — OVERLAY BUTTON POSITION */
+          /* ====================================== */
+
+          @media (min-width: 1025px) {
+
+            .hero-overlay--about {
+              padding-bottom: 130px !important;
+            }
+
+            .hero-overlay--tech {
+              padding-bottom: 125px !important;
+            }
+          }
+
+          /* ====================================== */
           /* TABLET */
           /* ====================================== */
 
@@ -467,6 +484,23 @@ const Hero = () => {
 
           @media (max-width: 768px) {
 
+            .hero-nav-arrow {
+              top: 165px !important;
+              width: 36px !important;
+              height: 36px !important;
+            }
+
+            .hero-cta {
+              white-space: nowrap !important;
+              padding: 10px 16px !important;
+              font-size: 12.5px !important;
+              gap: 6px !important;
+            }
+
+            .hero-btn-row {
+              flex-wrap: nowrap !important;
+            }
+
             #hero {
               height: auto !important;
               min-height: 100vh !important;
@@ -477,12 +511,14 @@ const Hero = () => {
 
               text-align: center;
 
+              justify-content: flex-start;
+
               gap: 18px;
 
               padding:
-                40px
+                90px
                 24px
-                260px;
+                280px;
             }
 
             .profile-image-wrap {
@@ -524,7 +560,7 @@ const Hero = () => {
             }
 
             .tech-stack-container {
-              padding: 48px 12px 282px;
+              padding: 48px 12px 300px;
 
               max-height: 100%;
               overflow-y: auto;
@@ -635,6 +671,7 @@ const SlideOverlay = ({
 
   return (
     <div
+      className={showHeroText ? "hero-overlay hero-overlay--about" : "hero-overlay hero-overlay--tech"}
       style={{
         position: "absolute",
         left: 0,
@@ -644,8 +681,8 @@ const SlideOverlay = ({
         zIndex: 10,
 
         padding: showHeroText
-          ? "16px 20px 130px"
-          : "14px 20px 125px",
+          ? "16px 20px 82px"
+          : "14px 20px 76px",
 
         display: "flex",
         flexDirection: "column",
@@ -688,6 +725,7 @@ const SlideOverlay = ({
       >
         <button
           onClick={scrollToProjects}
+          className="hero-cta"
           style={{
             display: "inline-flex",
             alignItems: "center",
@@ -715,6 +753,7 @@ const SlideOverlay = ({
           href={CV_DOWNLOAD_URL}
           target="_blank"
           rel="noopener noreferrer"
+          className="hero-cta"
           style={{
             display: "inline-flex",
             alignItems: "center",
