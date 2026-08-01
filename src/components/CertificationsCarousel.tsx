@@ -150,7 +150,14 @@ const CertificationsCarousel = () => {
                     <img
                       src={cert.file}
                       alt={cert.title}
-                      style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "6px" }}
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: cert.imageFit ?? "cover",
+                        borderRadius: "6px",
+                        padding: cert.imageFit === "contain" ? "10px" : 0,
+                        boxSizing: "border-box",
+                      }}
                       onError={(e) => {
                         (e.currentTarget as HTMLImageElement).style.display = "none";
                       }}
