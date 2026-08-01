@@ -84,7 +84,26 @@ const CertificateViewer = ({ cert, onClose }: Props) => {
           )}
         </div>
 
-        <div className="flex justify-end">
+        <div className="flex justify-end gap-3">
+          {cert.verifyUrl && (
+            <a
+              href={cert.verifyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-smooth hover:opacity-80"
+              style={{
+                color: "#fff",
+                fontSize: "13px",
+                fontWeight: 500,
+                backgroundColor: "#3ECFA4",
+                borderRadius: "8px",
+                padding: "8px 16px",
+                textDecoration: "none",
+              }}
+            >
+              Verify Credential →
+            </a>
+          )}
           <a
             href={cert.file}
             download
